@@ -10,3 +10,6 @@ parts:
       - file: Heading 2/ex3
       - file: Heading 2/ex4
       - file: Heading 2/ex5
+  - caption: Heading 3
+    chapters:
+      - file: Heading 3/a1
