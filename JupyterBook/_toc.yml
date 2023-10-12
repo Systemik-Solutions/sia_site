@@ -1,0 +1,14 @@
+format: jb-book
+root: intro
+parts:
+  - caption: Heading 1
+    chapters:
+      - file: Heading 1/ex1
+  - caption: Heading 2
+    chapters:
+      - file: Heading 2/overview
+        sections:
+          - file: Heading 2/ex2
+          - file: Heading 2/ex3
+          - file: Heading 2/ex4
+          - file: Heading 2/ex5
