@@ -1,4 +1,4 @@
 # EX3
 
 **Bold Textttt**
-*Italic TTTTextttt*
+*Italic TTTTextttttrt*
