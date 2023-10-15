@@ -62,7 +62,7 @@ jobs:
                 for sub_dir in "$dir"/*; do
                     if [ -d "$sub_dir" ] && [ -f "$sub_dir/overview.md" ]; then
                         sub_heading=$(basename -- "$sub_dir")
-                        echo "        - file: $heading/$sub_heading/overview" >> JupyterBook/_toc.yml
+                        echo "      - file: $heading/$sub_heading/overview" >> JupyterBook/_toc.yml
                         echo "        sections:" >> JupyterBook/_toc.yml
                         # Loop through other markdown files in the sub-directory excluding overview.md
                         for file in "$sub_dir"/*.md; do
