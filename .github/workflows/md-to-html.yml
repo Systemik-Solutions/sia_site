@@ -44,11 +44,10 @@ jobs:
 
         rsync -av --include='*.md' --include='*/' --exclude='*' Markdowns/ JupyterBook/
 
-
     # Generate TOC 
     - name: Generate TOC
       run: |
-            
+          
         echo "format: jb-book" > JupyterBook/_toc.yml
         echo "root: intro" >> JupyterBook/_toc.yml
         echo "parts:" >> JupyterBook/_toc.yml
