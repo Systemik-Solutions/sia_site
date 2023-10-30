@@ -15,18 +15,6 @@ parts:
   - caption: Divergence
     chapters:
       - file: Divergence/Divergence
-  - caption: Heading 1
-    chapters:
-      - file: Heading 1/ex1
-      - file: Heading 1/ex2
-  - caption: Heading 2
-    chapters:
-      - file: Heading 2/Nesting 1/overview
-        sections:
-          - file: Heading 2/Nesting 1/ex4
-          - file: Heading 2/Nesting 1/ex5
-      - file: Heading 2/ex3
-      - file: Heading 2/ex6
   - caption: Texts
     chapters:
       - file: Texts/Texts
