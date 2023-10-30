@@ -1,6 +1,20 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Burrows Zeta
+    chapters:
+      - file: Burrows Zeta/Burrows Zeta
+  - caption: Case Studies
+    chapters:
+      - file: Case Studies/Case 1
+      - file: Case Studies/Case 2
+      - file: Case Studies/Case 3
+  - caption: Concordance
+    chapters:
+      - file: Concordance/Concordance
+  - caption: Divergence
+    chapters:
+      - file: Divergence/Divergence
   - caption: Heading 1
     chapters:
       - file: Heading 1/ex1
@@ -13,3 +27,9 @@ parts:
           - file: Heading 2/Nesting 1/ex5
       - file: Heading 2/ex3
       - file: Heading 2/ex6
+  - caption: Texts
+    chapters:
+      - file: Texts/Texts
+  - caption: Word Frequencies
+    chapters:
+      - file: Word Frequencies/Word Frequencies
