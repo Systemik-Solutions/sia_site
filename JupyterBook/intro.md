@@ -8,10 +8,10 @@ From the home page of SIA, you can upload Texts or Text Sets, then run one of fo
 
 ![1](https://github.com/Systemik-Solutions/sia_site/assets/29685780/1df5c2ba-2bcd-4e77-af82-4500e8d9133f)
 
-•	Concordance: A listing of all the occurrences of a target word in a Text, together with the words occurring immediately before and after.
-•	Word Frequencies:
-•	Divergence: A measure of the similarity or difference between two Text Sets.
-•	Burrows’ Zeta: A method for using the frequencies of mid-range words for a classification exercise. Take a Text Set of Class A samples and a Text Set of Class B samples. Which words which are used regularly in Class A and rarely in Class B, and vice-versa? Each sample in the analysis is then given two scores, based on how many of the words in the two lists occur in it.
+- Concordance: A listing of all the occurrences of a target word in a Text, together with the words occurring immediately before and after.
+- Word Frequencies:
+- Divergence: A measure of the similarity or difference between two Text Sets.
+- Burrows’ Zeta: A method for using the frequencies of mid-range words for a classification exercise. Take a Text Set of Class A samples and a Text Set of Class B samples. Which words which are used regularly in Class A and rarely in Class B, and vice-versa? Each sample in the analysis is then given two scores, based on how many of the words in the two lists occur in it.
 
 Explore the Table of Contents for more detail on Texts, Text Sets, and the four experiments. SIA can be used on the web platform, or through an API. Each chapter has instructions for both methods.
 You can also visit [the SIA Github Discussions page](https://github.com/Systemik-Solutions/sia_site/discussions) to share any thoughts you have about SIA or this Jupyter Book.
