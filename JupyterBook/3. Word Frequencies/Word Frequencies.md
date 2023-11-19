@@ -49,9 +49,9 @@ An example of how you might use Word Frequencies is to analyse the frequencies o
 **XML Options** – This option is for Texts that are XML files that have been segmented as markup. Select XML tags to include or exclude in the results.
 
 **Word Options** – Type words into this field to completely exclude from the Word Frequencies process. By default, we exclude punctuation.
-   - Include Homograph Forms – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “read”).
+   - **Include Homograph Forms** – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “read”).
 
-4.	Click Show Results to see the results on the right.
+4.	Click **Show Results** to see the results on the right.
 
 ## Interpret the Results
 
