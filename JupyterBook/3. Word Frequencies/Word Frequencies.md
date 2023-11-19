@@ -11,20 +11,21 @@ An example of how you might use Word Frequencies is to analyse the frequencies o
 3.	Apply the following settings as required:
 
 ### General
-- Segmentation Options
-   - Segment by Character – This option is usually for Texts that are plays, or are XML files that have been segmented as markup. Check this box to separate the Text into blocks divided by character.
-   - Segment by Tag – This option is usually for Texts that are XML files that have been segmented as markup. ‘Tag’ refers to markup tags in XML that delineate a section of the text, e.g. ‘Act’. Type tags into this field to separate the Text into blocks divided by those tags.
-   - Block Method – Defines the method for creating blocks:
-      - BlockBigLast – Assign any words left over from creating blocks to the last block, creating one large end block.
-	BlockSmallLast – Assign any words left over from creating blocks to their own block, creating one small end block.
-	OverlappingBigLast – Create blocks that overlap with each other. Any words that are left over from creating blocks are assigned to the last block, creating one large end block.
-	OverlappingSmallLast – Create blocks that overlap with each other. Any words that are left over from creating blocks are assigned to their own block, creating one small end block.
-	Text – Use the entirety of the Text as a single block.
-o	Block Size – Set the number of words to include in a block.
-o	Advancement Size – For overlapping blocks, denote the starting point of the next block, i.e. an advancement size of 100 would mean that each block starts 100 words after the start of the previous block.
-•	Count Options
-o	Number of NGrams – Define the value of N for the NGram you want to find the frequency of.
-What is an NGram? An NGram refers to a number of words in a sequence. An NGram of 1 can be called a 1Gram, and refers to a single word. A 5Gram is a sequence of 5 words, like “how is it with you” or “get thee to a nunnery”.
+- **Segmentation Options**
+   - **Segment by Character** – This option is usually for Texts that are plays, or are XML files that have been segmented as markup. Check this box to separate the Text into blocks divided by character.
+   - **Segment by Tag** – This option is usually for Texts that are XML files that have been segmented as markup. ‘Tag’ refers to markup tags in XML that delineate a section of the text, e.g. ‘Act’. Type tags into this field to separate the Text into blocks divided by those tags.
+   - **Block Method** – Defines the method for creating blocks:
+      - **BlockBigLast** – Assign any words left over from creating blocks to the last block, creating one large end block.
+      - **BlockSmallLast** – Assign any words left over from creating blocks to their own block, creating one small end block.
+      - **OverlappingBigLast** – Create blocks that overlap with each other. Any words that are left over from creating blocks are assigned to the last block, creating one large end block.
+      - **OverlappingSmallLast** – Create blocks that overlap with each other. Any words that are left over from creating blocks are assigned to their own block, creating one small end block.
+      - **Text** – Use the entirety of the Text as a single block.
+   - **Block Size** – Set the number of words to include in a block.
+   - **Advancement Size** – For overlapping blocks, denote the starting point of the next block, i.e. an advancement size of 100 would mean that each block starts 100 words after the start of the previous block.
+- **Count Options**
+   - **Number of NGrams** – Define the value of N for the NGram you want to find the frequency of.
+
+> **What is an NGram?** An NGram refers to a number of words in a sequence. An NGram of 1 can be called a 1Gram, and refers to a single word. A 5Gram is a sequence of 5 words, like “how is it with you” or “get thee to a nunnery”.
 o	Emendation – Emend the words shown in the results. This setting works for Texts that are TEI or Plain Text files that have been marked up with tags for certain words. Not sure in which direction they are emended??:
 	reg – Tag to denote a regularised form of a word
 	corr – Tag to denote a corrected form of a word
