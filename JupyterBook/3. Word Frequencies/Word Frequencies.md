@@ -10,14 +10,12 @@ An example of how you might use Word Frequencies is to analyse the frequencies o
 2.	Select a Text or Text Set to analyse.
 3.	Apply the following settings as required:
 
-   General
+### General
 - Segmentation Options
-
-- 
-o	Segment by Character – This option is usually for Texts that are plays, or are XML files that have been segmented as markup. Check this box to separate the Text into blocks divided by character.
-o	Segment by Tag – This option is usually for Texts that are XML files that have been segmented as markup. ‘Tag’ refers to markup tags in XML that delineate a section of the text, e.g. ‘Act’. Type tags into this field to separate the Text into blocks divided by those tags.
-o	Block Method – Defines the method for creating blocks:
-	BlockBigLast – Assign any words left over from creating blocks to the last block, creating one large end block.
+   - Segment by Character – This option is usually for Texts that are plays, or are XML files that have been segmented as markup. Check this box to separate the Text into blocks divided by character.
+   - Segment by Tag – This option is usually for Texts that are XML files that have been segmented as markup. ‘Tag’ refers to markup tags in XML that delineate a section of the text, e.g. ‘Act’. Type tags into this field to separate the Text into blocks divided by those tags.
+   - Block Method – Defines the method for creating blocks:
+      - BlockBigLast – Assign any words left over from creating blocks to the last block, creating one large end block.
 	BlockSmallLast – Assign any words left over from creating blocks to their own block, creating one small end block.
 	OverlappingBigLast – Create blocks that overlap with each other. Any words that are left over from creating blocks are assigned to the last block, creating one large end block.
 	OverlappingSmallLast – Create blocks that overlap with each other. Any words that are left over from creating blocks are assigned to their own block, creating one small end block.
