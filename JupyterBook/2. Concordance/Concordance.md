@@ -6,11 +6,11 @@ An example of how you might use a Concordance is to map the occurrence of the wo
 
 ## Platform Process
 
-1.	From the home page, select Concordance.
-2.	Choose a Text.
-3.	Enter Words to search for.
+1.	From the home page, select **Concordance**.
+2.	Choose a **Text**.
+3.	Enter **Words to search for**.
 4.	Use the sliders to set the number of words to show before and after the searched words.
-5.	Click Show results.
+5.	Click **Show results**.
 
 You’ll see the results on the right. You can copy the data to your clipboard or export it as an .xlsx or .zip file.
 
