@@ -15,7 +15,7 @@ parts:
       - file: 4. Divergence/Divergence
   - caption: 5. Burrows Zeta
     chapters:
-      - file: 5. Burrows Zeta/Burrows Zeta
+      - file: 5. Burrows Zeta/Burrows' Zeta
   - caption: 6. Case Studies
     chapters:
       - file: 6. Case Studies/Case 1
