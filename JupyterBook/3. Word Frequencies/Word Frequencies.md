@@ -9,7 +9,7 @@ An example of how you might use Word Frequencies is to analyse the frequencies o
 1.	From the home page, select Word Frequencies.
 2.	Select a Text or Text Set to analyse.
 3.	Apply the following settings as required:
-   <br>
+
    General
 - Segmentation Options
 
