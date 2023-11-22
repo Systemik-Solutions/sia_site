@@ -406,7 +406,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="burrows-zeta">
 <h1>Burrows’ Zeta<a class="headerlink" href="#burrows-zeta" title="Permalink to this heading">#</a></h1>
 <p>Burrows’ Zeta is a method for using the frequencies of mid-range words for a classification exercise. We take a Text Set of Class A samples and a Text Set of Class B samples. Which words which are used regularly in Class A and rarely in Class B, and vice-versa? Each sample in the analysis is then given two scores, based on how many of the words in the two lists occur in it.  A mystery sample which has many of the Class A words in its vocabulary and rather few of the Class B words can be assigned to Class A.</p>
-<p>An example of how you might use Burrows’ Zeta is…</p>
+<p>An example of how you might use Burrows’ Zeta is to solve an authorship problem. A new version of The Spanish Tragedy was published in 1602 with some added scenes. There is some evidence to connect them with Ben Jonson, but many commentators think they sound Shakespearean. We take a set of Shakespeare plays as Class A, and a set of Jonson plays as Class B, find the Class A words and the Class B words with the highest Zeta index scores, and see how many from each list are in the added scenes. How Shakespearean is the vocabulary of the added scenes, and alternatively how Jonsonian is it?</p>
 <section id="platform-process">
 <h2>Platform Process<a class="headerlink" href="#platform-process" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -433,7 +433,7 @@ document.write(`
 <p><strong>Word Selection Criteria</strong> – Fill in the fields to define how words are selected in the Text Set.</p>
 <p><strong>Test Segments</strong></p>
 <ul class="simple">
-<li><p><strong>Extract random test segments from this text set</strong> – Check this box and set a <strong>Test segment proportion</strong> to extract random segments to test and compare to the score for the whole Text Set.</p></li>
+<li><p><strong>Extract random test segments from this text set</strong> – Check this box and set a <strong>Test segment proportion</strong> to extract random segments to test. The extracted segments play no part in the selection of the words for the analysis so are a genuine test of the method where it is confronted with freshly introduced samples.</p></li>
 <li><p><strong>Zeta Index Calculation</strong></p></li>
 </ul>
 <hr class="docutils" />
@@ -446,8 +446,8 @@ document.write(`
 <p><strong>Zeta Parameters</strong></p>
 <ul class="simple">
 <li><p><strong>Output Size</strong> – Set the number of Zeta Words that you want to include in the results.</p></li>
-<li><p><strong>Minimum Zeta score to output</strong> – Set…</p></li>
-<li><p><strong>Random seed for test segment extraction</strong></p></li>
+<li><p><strong>Minimum Zeta score to output</strong> – In the Zeta procedure each word is given a Zeta index score. This setting allows you to set a cut-off Zeta score, rather than a cut-off number of words to include.</p></li>
+<li><p><strong>Random seed for test segment extraction</strong> – Once you have set a random seed, you will be able to return to the same random selection by entering the same seed next time. (Otherwise there is a separate random selection each time.)</p></li>
 <li><p><strong>Words</strong> – Type words into this field to specify words to include or hide in the results, depending on the dropdown above.</p></li>
 </ul>
 <p><strong>NGrams</strong></p>
@@ -463,7 +463,7 @@ document.write(`
 <p>Select XML tags to include or exclude in the results.</p>
 <p><strong>Words to Exclude from Process</strong> – Type words into this field to completely exclude from the Burrows’ Zeta process. By default, we exclude punctuation.</p>
 <ul class="simple">
-<li><p><strong>Include Homograph Forms</strong> – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “read”).</p></li>
+<li><p><strong>Include Homograph Forms</strong> – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “will”).</p></li>
 </ul>
 <hr class="docutils" />
 <ol class="arabic simple" start="5">
@@ -475,7 +475,7 @@ document.write(`
 <h2>Interpret the Results<a class="headerlink" href="#interpret-the-results" title="Permalink to this heading">#</a></h2>
 <p>Burrows’ Zeta results are split into a few tabs.</p>
 <ul class="simple">
-<li><p><strong>Zeta Experiment Summary</strong> – This view lists the Zeta Words that have been analysed. Use the dropdown to see the <strong>Hits</strong>, <strong>Frequencies</strong>, and <strong>Proportions</strong> of each Zeta Word in each Text Set, as well as in any random test segments.</p></li>
+<li><p><strong>Zeta Experiment Summary</strong> – This view lists the Zeta Words that have been analysed. Use the dropdown to see the <strong>Hits</strong>, <strong>Frequencies</strong>, and <strong>Proportions</strong> of each Zeta Word in each Text Set, as well as in any random test segments. <strong>Hits</strong> gives the numbers of segments that include one or more instances of the word, <strong>Frequencies</strong> gives the total of the instances of the word, and <strong>Proportions</strong> gives the total of the instances as a percentage of the size of the block.</p></li>
 <li><p><strong>Text Sets</strong> – Each Text Set has its own result view, where you can see the frequencies of each Zeta Word in each segment/block of the Text Set. If you chose to extract random test segments from a Text Set, that will have its own tab as well.</p></li>
 </ul>
 <p>Click <strong>Copy to Clipboard</strong> to copy the results so you can paste them into a document or spreadsheet.</p>
