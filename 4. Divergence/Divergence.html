@@ -407,7 +407,7 @@ document.write(`
 <h1>Divergence<a class="headerlink" href="#divergence" title="Permalink to this heading">#</a></h1>
 <p>Jensen-Shannon Divergence (JSD, or simply Divergence) is a measure of the similarity or difference between two Text Sets. It is based on proportional frequencies of words. It provides a single measure of difference between samples relying on multiple component word frequencies. A typical application is to compare all the words in a collection to the overall average of that collection. Which words are typical, and which words are aberrant?</p>
 <p>By looking at the individual word-variables which contribute most to the Divergence score you can quickly determine whether a handful of words have largely created the divergence, or not, and look at what these words are – typically a very common word with a very high or very low proportional frequency, or a usually rare word used intensively in one of the Text Sets.</p>
-<p>An example of how you might use Divergence is to find how the words used in each act diverge between Hamlet and Othello. Does Shakespeare commonly use similar words in certain acts?</p>
+<p>An example of a use for Divergence would be to find which is the most ‘normal’ segment in a set of Shakespeare plays – the segment that is closest to the overall average word use – and which segment  is the most ‘aberrant’.</p>
 <section id="platform-process">
 <h2>Platform Process<a class="headerlink" href="#platform-process" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -440,7 +440,7 @@ document.write(`
 </ul>
 <p><strong>Divergence Options</strong></p>
 <ul class="simple">
-<li><p><strong>Log Base</strong></p></li>
+<li><p><strong>Log Base</strong> – The Jensen-Shannon Divergence formula includes a log function. You can choose to use logs to the base 2, base 10 or base ‘e’ (i.e., a natural logarithm).</p></li>
 <li><p><strong>Per Word Calculation</strong> – Check this box to see which words contributed most to the Divergence score in the results.</p></li>
 <li><p><strong>Log N/M Calculation</strong></p></li>
 <li><p><strong>Log N/M Mode</strong></p></li>
