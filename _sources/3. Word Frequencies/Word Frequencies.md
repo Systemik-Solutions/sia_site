@@ -1,8 +1,8 @@
 # Word Frequencies
 
-Word Frequencies can measure the frequency of certain words or sets of words (NGrams) within a Text by breaking the text down into blocks.
+Word Frequencies can measure the frequency of certain words or strings of words (NGrams) within a Text by breaking the text down into blocks.
 
-An example of how you might use Word Frequencies is to analyse the frequencies of the words “has” and “hath” throughout all of Shakespeare’s plays. Go to [Case Studies](https://systemik-solutions.github.io/sia_site/6.%20Case%20Studies/Case%203.html#case-3) to work through this example.
+An example of how you might use Word Frequencies is to analyse the frequencies of the words “has” and “hath” throughout a selection of Shakespeare’s plays. Go to [Case Studies](https://systemik-solutions.github.io/sia_site/6.%20Case%20Studies/Case%203.html#case-3) to work through this example.
 
 ## Platform Process
 
@@ -13,7 +13,7 @@ An example of how you might use Word Frequencies is to analyse the frequencies o
 ### General
 
 **Segmentation Options**
-- **Segment by Character** – This option is usually for Texts that are plays, or are XML files that have been segmented as markup. Check this box to separate the Text into blocks divided by character.
+- **Segment by Character** – This option is usually for Texts that are plays, or are XML files that have been tagged speeches, e.g. speeches by characters in a novel. Check this box to separate the Text into blocks divided by character.
 - **Segment by Tag** – This option is usually for Texts that are XML files that have been segmented as markup. ‘Tag’ refers to markup tags in XML that delineate a section of the text, e.g. ‘Act’. Type tags into this field to separate the Text into blocks divided by those tags.
    - **Block Method** – Defines the method for creating blocks:
    - **BlockBigLast** – Assign any words left over from creating blocks to the last block, creating one large end block.
@@ -29,27 +29,27 @@ An example of how you might use Word Frequencies is to analyse the frequencies o
 
 > **What is an NGram?** An NGram refers to a number of words in a sequence. An NGram of 1 can be called a 1Gram, and refers to a single word. A 5Gram is a sequence of 5 words, like “how is it with you” or “get thee to a nunnery”.
 
-- **Emendation** – Emend the words shown in the results. This setting works for Texts that are TEI or Plain Text files that have been marked up with tags for certain words.
-   - **reg** – Tag to denote a regularised form of a word
-   - **corr** – Tag to denote a corrected form of a word
-   - **orig** – Tag to denote an original form of a word
-   - **sic** – Tag to denote an original form of a word before correction
-- **Count Graphemes** – Check this box to use graphemes/letters as a Gram (i.e. ‘the’ would become a 3Gram).
+- **Emendation** – Control the use of regularized or corrected versions of words and word sequences in the texts. This setting works for Texts that are TEI files that have been marked up with tags showing both the original and emended versions of the text.
+   - **reg** – Tag to denote the regularised form of a word or string of words
+   - **corr** – Tag to denote the corrected form of a word or string of words
+   - **orig** – Tag to denote the original form of a word or word sequence that has been regularised
+   - **sic** – Tag to denote the original form of a word or word sequence that has been corrected before
+- **Count Graphemes** – Check this box to use graphemes (letters) as the unit for counting. A 3Gram would then be a string of three letters, and ‘dreams’ in a text would be counted as one instance of ‘dre’ and one instance of ‘ams’.
 
 **Output Options**
-- Show Metadata – Check this box to show metadata from the Text or Text Set in the results, e.g., the Title.
+- **Show Metadata** – Check this box to show metadata from the Text or Text Set in the results, e.g., the author and date as well as the name of the segment.
 - **Show** – Choose which words to show in the results:
   - **Words having highest frequency** – Show the most common words
   - **Words unsorted** – Show words that are entered into the Words field, in the order they are entered.
 - **Output Size** – Set the number of common words to show in the results.
-- **Words** – Type words into this field to specify words to include or hide in the results, depending on the dropdown above.
+- **Words** – Type or paste words into this field to specify words to include or hide in the results, depending on the dropdown above.
 
 ### Inclusions/Exclusions
 
 **XML Options** – This option is for Texts that are XML files that have been segmented as markup. Select XML tags to include or exclude in the results.
 
 **Word Options** – Type words into this field to completely exclude from the Word Frequencies process. By default, we exclude punctuation.
-   - **Include Homograph Forms** – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “read”).
+   - **Include Homograph Forms** – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “will”).
 ***
 4.	Click **Show Results** to see the results on the right.
 
@@ -59,7 +59,7 @@ Word Frequencies results are split into four tabs.
 
 - **Text Output** – The most general result view. The words or NGrams you searched for are shown in the left column. The Text segments (or blocks) are listed in the top row. The table shows the number of instances of each word or NGram in each block. Toggle **Show proportions** to see the results as percentage values.
 - **Shannon Entropy Column** and **Shannon Entropy Table** – These views assign each segment with an Entropy score, which indicates how repetitive the word use is within the segment. A higher score means the word use is less repetitive. The **Shannon Entropy Table** includes an Average score.
-- **Segment Endings** – This view helps you find the beginning and end of segments within the Text, so you can apply the results. For each segment, the first four words and the last three words are shown.
+- **Segment Endings** – This view helps you find the beginning and end of segments within the Text, so you can work out the exact span of a given segment, where that segment is of special interest. For each segment, the first four words and the last three words are shown.
 
 Click **Copy to Clipboard** to copy the results so you can paste them into a document or spreadsheet.
 
