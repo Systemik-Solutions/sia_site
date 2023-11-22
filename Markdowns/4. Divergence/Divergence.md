@@ -4,7 +4,7 @@ Jensen-Shannon Divergence (JSD, or simply Divergence) is a measure of the simila
 
 By looking at the individual word-variables which contribute most to the Divergence score you can quickly determine whether a handful of words have largely created the divergence, or not, and look at what these words are – typically a very common word with a very high or very low proportional frequency, or a usually rare word used intensively in one of the Text Sets.
 
-An example of a use for Divergence would be to find which is the most ‘normal’ segment in a set of Shakespeare plays – the segment that is closest to the overall average word use – and which segment  is the most ‘aberrant’.
+An example of a use for Divergence would be to find which is the most ‘normal’ segment in a set of Shakespeare plays – the segment that is closest to the overall average word use – and which segment is the most ‘aberrant’.
 
 ## Platform Process
 
@@ -18,7 +18,7 @@ An example of a use for Divergence would be to find which is the most ‘normal�
 
 **Segmentation Options**
 
-- **Segment by Character** – This option is usually for Text Sets that include plays, or XML files that have been segmented as markup. Check this box to separate the Text Sets into blocks divided by character.
+- **Segment by Character** – This option is usually for Text Sets that include plays, or XML files that have been segmented as markup. Check this box to separate the Text Sets into blocks divided by speaking character.
 - **Block Size** – Set the number of words to include in a block.
 
 **Count Options**
@@ -31,7 +31,7 @@ An example of a use for Divergence would be to find which is the most ‘normal�
 
 **Word Options** – Type words into this field to completely exclude from the Divergence process. By default, we exclude punctuation.
 
-- **Include Homograph Forms** – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “read”).
+- **Include Homograph Forms** – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “will”).
 
 **Divergence Options**
 
@@ -56,7 +56,7 @@ An example of a use for Divergence would be to find which is the most ‘normal�
 
 Divergence results are split into many tabs.
 
-- **Divergence Table** and **Divergence Column** – These views show the Divergence scores for segments/blocks of the Comparison Text Set. A higher score means the segment diverges less from the Reference Text Set.
+- **Divergence Table** and **Divergence Column** – These views show the Divergence scores for segments/blocks of the Comparison Text Set. A higher score means the segment diverges more from the Reference Text Set.
 - **Reference Entropy Table**, **Reference Entropy Column**, **Reference Weighted Entropy Table** and **Reference Weighted Entropy Column** – These views assign each segment of the Reference Text Set with an Entropy score, which indicates how repetitive the word use is within the segment. A higher score means the word use is less repetitive. The **Reference Entropy Table** includes an Average score.
 - **Comparison Entropy Table**, **Comparison Entropy Column**, **Comparison Weighted Entropy Table** and **Comparison Weighted Entropy Column** – These views assign each segment of the Comparison Text Set with an Entropy score, which indicates how repetitive the word use is within the segment. A higher score means the word use is less repetitive. The **Comparison Entropy Table** includes an Average score.
 
