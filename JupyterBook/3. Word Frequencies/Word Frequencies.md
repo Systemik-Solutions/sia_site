@@ -13,7 +13,7 @@ An example of how you might use Word Frequencies is to analyse the frequencies o
 ### General
 
 **Segmentation Options**
-- **Segment by Character** – This option is usually for Texts that are plays, or are XML files that have been tagged speeches, e.g. speeches by characters in a novel. Check this box to separate the Text into blocks divided by character.
+- **Segment by Character** – This option is usually for Texts that are plays, or are XML files that have been tagged speeches, e.g. speeches by characters in a novel. Check this box to separate the Text into blocks divided by speaking character.
 - **Segment by Tag** – This option is usually for Texts that are XML files that have been segmented as markup. ‘Tag’ refers to markup tags in XML that delineate a section of the text, e.g. ‘Act’. Type tags into this field to separate the Text into blocks divided by those tags.
    - **Block Method** – Defines the method for creating blocks:
    - **BlockBigLast** – Assign any words left over from creating blocks to the last block, creating one large end block.

@@ -4,7 +4,7 @@ Jensen-Shannon Divergence (JSD, or simply Divergence) is a measure of the simila
 
 By looking at the individual word-variables which contribute most to the Divergence score you can quickly determine whether a handful of words have largely created the divergence, or not, and look at what these words are – typically a very common word with a very high or very low proportional frequency, or a usually rare word used intensively in one of the Text Sets.
 
-An example of how you might use Divergence is to find how the words used in each act diverge between Hamlet and Othello. Does Shakespeare commonly use similar words in certain acts?
+An example of a use for Divergence would be to find which is the most ‘normal’ segment in a set of Shakespeare plays – the segment that is closest to the overall average word use – and which segment  is the most ‘aberrant’.
 
 ## Platform Process
 
@@ -35,7 +35,7 @@ An example of how you might use Divergence is to find how the words used in each
 
 **Divergence Options**
 
-- **Log Base**
+- **Log Base** – The Jensen-Shannon Divergence formula includes a log function. You can choose to use logs to the base 2, base 10 or base ‘e’ (i.e., a natural logarithm).
 - **Per Word Calculation** – Check this box to see which words contributed most to the Divergence score in the results.
 - **Log N/M Calculation**
 - **Log N/M Mode**
