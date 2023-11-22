@@ -2,7 +2,7 @@
 
 Burrows’ Zeta is a method for using the frequencies of mid-range words for a classification exercise. We take a Text Set of Class A samples and a Text Set of Class B samples. Which words which are used regularly in Class A and rarely in Class B, and vice-versa? Each sample in the analysis is then given two scores, based on how many of the words in the two lists occur in it.  A mystery sample which has many of the Class A words in its vocabulary and rather few of the Class B words can be assigned to Class A.
 
-An example of how you might use Burrows’ Zeta is…
+An example of how you might use Burrows’ Zeta is to solve an authorship problem. A new version of The Spanish Tragedy was published in 1602 with some added scenes. There is some evidence to connect them with Ben Jonson, but many commentators think they sound Shakespearean. We take a set of Shakespeare plays as Class A, and a set of Jonson plays as Class B, find the Class A words and the Class B words with the highest Zeta index scores, and see how many from each list are in the added scenes. How Shakespearean is the vocabulary of the added scenes, and alternatively how Jonsonian is it?
 
 ## Platform Process
 
@@ -26,7 +26,7 @@ An example of how you might use Burrows’ Zeta is…
 
 **Test Segments**
 
-- **Extract random test segments from this text set** – Check this box and set a **Test segment proportion** to extract random segments to test and compare to the score for the whole Text Set.
+- **Extract random test segments from this text set** – Check this box and set a **Test segment proportion** to extract random segments to test. The extracted segments play no part in the selection of the words for the analysis so are a genuine test of the method where it is confronted with freshly introduced samples. 
 - **Zeta Index Calculation**
 ***
 4.	Apply the following settings as required:
@@ -36,8 +36,8 @@ An example of how you might use Burrows’ Zeta is…
 **Zeta Parameters**
 
 - **Output Size** – Set the number of Zeta Words that you want to include in the results.
-- **Minimum Zeta score to output** – Set…
-- **Random seed for test segment extraction**
+- **Minimum Zeta score to output** – In the Zeta procedure each word is given a Zeta index score. This setting allows you to set a cut-off Zeta score, rather than a cut-off number of words to include.
+- **Random seed for test segment extraction** – Once you have set a random seed, you will be able to return to the same random selection by entering the same seed next time. (Otherwise there is a separate random selection each time.)
 - **Words** – Type words into this field to specify words to include or hide in the results, depending on the dropdown above.
 
 **NGrams**
@@ -52,7 +52,7 @@ Select XML tags to include or exclude in the results.
 
 **Words to Exclude from Process** – Type words into this field to completely exclude from the Burrows’ Zeta process. By default, we exclude punctuation.
 
-- **Include Homograph Forms** – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “read”).
+- **Include Homograph Forms** – Check this box to separate homograph forms of a word in the results (e.g. separate the noun and verb forms of “will”).
 ***
 5.	Click **Show Results** to see the results on the right.
 
@@ -60,7 +60,7 @@ Select XML tags to include or exclude in the results.
 
 Burrows’ Zeta results are split into a few tabs.
 
-- **Zeta Experiment Summary** – This view lists the Zeta Words that have been analysed. Use the dropdown to see the **Hits**, **Frequencies**, and **Proportions** of each Zeta Word in each Text Set, as well as in any random test segments.
+- **Zeta Experiment Summary** – This view lists the Zeta Words that have been analysed. Use the dropdown to see the **Hits**, **Frequencies**, and **Proportions** of each Zeta Word in each Text Set, as well as in any random test segments. **Hits** gives the numbers of segments that include one or more instances of the word, **Frequencies** gives the total of the instances of the word, and **Proportions** gives the total of the instances as a percentage of the size of the block.
 - **Text Sets** – Each Text Set has its own result view, where you can see the frequencies of each Zeta Word in each segment/block of the Text Set. If you chose to extract random test segments from a Text Set, that will have its own tab as well.
 
 Click **Copy to Clipboard** to copy the results so you can paste them into a document or spreadsheet.
