@@ -185,7 +185,7 @@ Running concordance on a single text. See [Setting texts and text sets](https://
 
                 }, 
 
-                {"$ref": "[/api/v1/schemas/text.schema.json](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#json-schema)"} 
+                {"$ref": "/api/v1/schemas/text.schema.json"} 
 
             ] 
 
@@ -328,7 +328,7 @@ Running concordance on a single text. See [Setting texts and text sets](https://
 
 `POST /word-frequencies` 
 
-Run word frequencies on texts or text sets. The word frequencies can be run on either texts or text sets. See Setting texts and text sets section about how to set the `text` or `textSet` property for the API. However, both `text` and `textSet` cannot be set at the same time in a API call. 
+Run word frequencies on texts or text sets. The word frequencies can be run on either texts or text sets. See [Setting texts and text sets](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#setting-texts-and-text-sets) section about how to set the `text` or `textSet` property for the API. However, both `text` and `textSet` cannot be set at the same time in a API call. 
 
 The `options` of word frequencies can be set up by the option property with a word frequency option object. 
 
@@ -554,7 +554,7 @@ The `options` of word frequencies can be set up by the option property with a wo
 
 `POST /divergence` 
 
-Run divergence based on a reference text set and a comparison text set. See Setting texts and text sets section about how to set the `referenceTextSet` and `comparisonTextSet` for the API. 
+Run divergence based on a reference text set and a comparison text set. See [Setting texts and text sets](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#setting-texts-and-text-sets) section about how to set the `referenceTextSet` and `comparisonTextSet` for the API. 
 
 The divergence calculations are based on the word frequencies. Therefore, the options for running the word frequencies can be set by the property `wordFrequenciesOption`. 
 
@@ -1112,7 +1112,7 @@ The divergence calculations are based on the word frequencies. Therefore, the op
 
 `POST /zeta` 
 
-Run Burrows' Zeta experiment on text sets. See Setting texts and text sets section about how to set text sets for the API. 
+Run Burrows' Zeta experiment on text sets. See [Setting texts and text sets](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#setting-texts-and-text-sets) section about how to set text sets for the API. 
 
 Each text set included in the experiment can have different options via `localOption`. There are also global settings from `globalOption` which apply to all text sets. 
 
@@ -1859,12 +1859,12 @@ Each text set included in the experiment can have different options via `localOp
 Texts can be specified via one of the following methods when calling the feature API such as word frequencies API: 
 
 - using an existing text from SIA by specifying the `id` of the text.
-- using a constructed text object. `readOnly` properties of the text object are not required in this case. The process will use the content and metadata from the text object. However, it will not save the text data into SIA. 
+- using a constructed [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6). `readOnly` properties of the text object are not required in this case. The process will use the content and metadata from the text object. However, it will not save the text data into SIA. 
 
 Text sets can be specified in similar methods: 
 
 - using an existing text set from SIA by providing the `id` of the text set.
-- using a constructed text set object.
+- using a constructed [text set object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6).
 
 ## Authentication
 
