@@ -198,7 +198,7 @@ The text set object of the updated text set. For each text object in the text se
 
 ##### Delete 
 
-```DELETE /text-sets/{id}``` 
+`DELETE /text-sets/{id}` 
 
 Delete a text set owned by the authenticated user. `{id}` is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the delete text API. 
 
