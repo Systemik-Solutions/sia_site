@@ -413,8 +413,175 @@ document.write(`
 </ol>
 <p>You’ll see the results on the right. You can copy the data to your clipboard or export it as an .xlsx or .zip file.</p>
 </section>
+<hr class="docutils" />
 <section id="api-process">
 <h2>API Process<a class="headerlink" href="#api-process" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/concordance</span></code></p>
+<p>Running concordance on a single text. See Setting texts and text sets section about how to set text property.</p>
+<p><strong>Request</strong></p>
+<p>{</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;$id&quot;: &quot;https://intelligentarchive.sydney.edu.au/api/v1/schemas/request-concordance.schema.json&quot;, 
+
+&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;, 
+
+&quot;title&quot;: &quot;Request - concordance&quot;, 
+
+&quot;description&quot;: &quot;The request object to run concordance.&quot;, 
+
+&quot;type&quot;: &quot;object&quot;, 
+
+&quot;required&quot;: [&quot;text&quot;, &quot;option&quot;], 
+
+&quot;properties&quot;: { 
+
+    &quot;text&quot;: { 
+
+        &quot;description&quot;: &quot;Specifies the text for the concordance.&quot;, 
+
+        &quot;oneOf&quot;: [ 
+
+            { 
+
+                &quot;type&quot;: &quot;integer&quot;, 
+
+                &quot;description&quot;: &quot;The ID of the text.&quot; 
+
+            }, 
+
+            {&quot;$ref&quot;: &quot;/api/v1/schemas/text.schema.json&quot;} 
+
+        ] 
+
+    }, 
+
+    &quot;option&quot;: { 
+
+        &quot;type&quot;: &quot;object&quot;, 
+
+        &quot;description&quot;: &quot;Concordance settings&quot;, 
+
+        &quot;required&quot;: [&quot;words&quot;], 
+
+        &quot;properties&quot;: { 
+
+            &quot;words&quot;: { 
+
+                &quot;type&quot;: &quot;array&quot;, 
+
+                &quot;description&quot;: &quot;The list of words to be searched.&quot;, 
+
+                &quot;items&quot;: { 
+
+                    &quot;type&quot;: &quot;string&quot; 
+
+                } 
+
+            }, 
+
+            &quot;numOfWordsBefore&quot;: { 
+
+                &quot;type&quot;: &quot;integer&quot;, 
+
+                &quot;description&quot;: &quot;The number of words to return in the pre-context.&quot;, 
+
+                &quot;default&quot;: 5, 
+
+                &quot;exclusiveMinimum&quot;: 0 
+
+            }, 
+
+            &quot;numOfWordsAfter&quot;: { 
+
+                &quot;type&quot;: &quot;integer&quot;, 
+
+                &quot;description&quot;: &quot;The number of words to return in the post-context.&quot;, 
+
+                &quot;default&quot;: 5, 
+
+                &quot;exclusiveMinimum&quot;: 0 
+
+            } 
+
+        } 
+
+    } 
+
+} 
+</pre></div>
+</div>
+<p>}</p>
+<p>Response</p>
+<p>{</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;$id&quot;: &quot;https://intelligentarchive.sydney.edu.au/api/v1/schemas/response-concordance.schema.json&quot;, 
+
+&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;, 
+
+&quot;title&quot;: &quot;Response - concordance&quot;, 
+
+&quot;description&quot;: &quot;The response object from the concordance feature.&quot;, 
+
+&quot;type&quot;: &quot;object&quot;, 
+
+&quot;properties&quot;: { 
+
+    &quot;words&quot;: { 
+
+        &quot;type&quot;: &quot;array&quot;, 
+
+        &quot;description&quot;: &quot;The list of words with their contexts.&quot;, 
+
+        &quot;items&quot;: { 
+
+            &quot;type&quot;: &quot;object&quot;, 
+
+            &quot;properties&quot;: { 
+
+                &quot;word&quot;: { 
+
+                    &quot;type&quot;: &quot;string&quot;, 
+
+                    &quot;description&quot;: &quot;The searched word.&quot; 
+
+                }, 
+
+                &quot;preContext&quot;: { 
+
+                    &quot;type&quot;: &quot;array&quot;, 
+
+                    &quot;description&quot;: &quot;List of words before the searched word.&quot;, 
+
+                    &quot;items&quot;: { 
+
+                        &quot;type&quot;: &quot;string&quot; 
+
+                    } 
+
+                }, 
+
+                &quot;postContext&quot;: { 
+
+                    &quot;type&quot;: &quot;array&quot;, 
+
+                    &quot;description&quot;: &quot;List of words after the searched word.&quot;, 
+
+                    &quot;items&quot;: { 
+
+                        &quot;type&quot;: &quot;string&quot; 
+
+                    } 
+
+                } 
+
+            } 
+
+        } 
+
+    } 
+
+} 
+</pre></div>
+</div>
+<p>}</p>
 </section>
 </section>
 
