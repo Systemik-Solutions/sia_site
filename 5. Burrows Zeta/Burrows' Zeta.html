@@ -482,6 +482,743 @@ document.write(`
 </section>
 <section id="api-process">
 <h2>API Process<a class="headerlink" href="#api-process" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/zeta</span></code></p>
+<p>Run Burrows’ Zeta experiment on text sets. See Setting texts and text sets section about how to set text sets for the API.</p>
+<p>Each text set included in the experiment can have different options via <code class="docutils literal notranslate"><span class="pre">localOption</span></code>. There are also global settings from <code class="docutils literal notranslate"><span class="pre">globalOption</span></code> which apply to all text sets.</p>
+<p><strong>Request</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
+
+    <span class="s2">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;https://intelligentarchive.sydney.edu.au/api/v1/schemas/request-zeta.schema.json&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Request - Burrows&#39; Zeta&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The request object to run Burrows&#39; Zeta experiment.&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;textSets&quot;</span><span class="p">],</span> 
+
+    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+        <span class="s2">&quot;textSets&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A text set with the local options.&quot;</span><span class="p">,</span> 
+
+                <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;textSet&quot;</span><span class="p">],</span> 
+
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;textSet&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The text set.&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span> 
+
+                            <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the text set.&quot;</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/v1/schemas/textset.schema.json&quot;</span><span class="p">}</span> 
+
+                        <span class="p">]</span> 
+
+                    <span class="p">},</span> 
+
+                    <span class="s2">&quot;localOption&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The options which only apply to this text set.&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                            <span class="s2">&quot;segmentTags&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Segment the text by the XML tags provided&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The name of the XML tag (without &#39;&lt;&#39; and &#39;&gt;&#39;)&quot;</span> 
+
+                                <span class="p">},</span> 
+
+                                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[]</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;blockMethod&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The method of segmenting the text into blocks.  (0):  Big Block Last (2):  Small Block Last (3): Segment by words of a given size &quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span> 
+
+                                    <span class="p">{</span> 
+
+                                        <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;By text&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Segment by the full content of texts. This is useful when segmenting text sets. But it can be also used on a single text resulting a single block.&quot;</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="p">{</span> 
+
+                                        <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Big block last&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Segment by words of a given size and the last block will have words of the given size plus the remaining words.&quot;</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="p">{</span> 
+
+                                        <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Small block last&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Segment by words of a given size and the last block will have the remaining words (which is less than the given size).&quot;</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="p">{</span> 
+
+                                        <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Overlapping big block last&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Similar to the &#39;Big block last&#39; method but with an advanced size defined when segmenting texts.&quot;</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="p">{</span> 
+
+                                        <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Overlapping small block last&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Similar to the &#39;Small block last&#39; method but with an advanced size defined when segmenting texts.&quot;</span> 
+
+                                    <span class="p">}</span> 
+
+                                <span class="p">]</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;blockSize&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of words in each block when segementing the text. This is only in effect when the block method is &#39;Big block last&#39; or &#39;Small block last&#39;.&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;exclusiveMinimum&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">2500</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;advancedBlockSize&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of words to advance when segmenting the next block. If the advanced size is smaller than the block size, each block will have an overlapping part with the neighbour blocks.&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;exclusiveMinimum&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">500</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;wordSelection&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The selection criteria of the Zeta words. Omit this property if no selection criteria is required.&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                    <span class="s2">&quot;valueType&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The value type used for the word selection criteria.&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;frequency&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">,</span> <span class="s2">&quot;proportion&quot;</span><span class="p">]</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="s2">&quot;operator&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The operator used for the word selection criteria. The &#39;all&#39; operator will include all words regardless of the criteria.&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;atleast&quot;</span><span class="p">,</span> <span class="s2">&quot;nogreaterthan&quot;</span><span class="p">,</span> <span class="s2">&quot;between&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">]</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The minimal value of the criteria. When the value type is proportion, the values should be the decimal value of the proportion. Only applies when the operator is &#39;atleast&#39; or &#39;between&#39;.&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">0</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The maximal value of the criteria. When the value type is proportion, the values should be the decimal value of the proportion. Only applies when the operator is &#39;nogreaterthan&#39; or &#39;between&#39;.&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">0</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="s2">&quot;scopeValueType&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The value type used for the scope constraint. Can either be the number of segments or the proportion among all segments.&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;proportion&quot;</span><span class="p">]</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="s2">&quot;scopeOperator&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The operator used in the scope constraint. &#39;all&#39; means applying to all segments.&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;atleast&quot;</span><span class="p">,</span> <span class="s2">&quot;atmost&quot;</span><span class="p">]</span> 
+
+                                    <span class="p">},</span> 
+
+                                    <span class="s2">&quot;scopeValue&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number or proportion of segments used in the scope constraint. Only applies when the scope operator is &#39;atleast&#39; or &#39;atmost&#39;. Use the decimal value if the value is a proportion.&quot;</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                                        <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">0</span> 
+
+                                    <span class="p">}</span> 
+
+                                <span class="p">}</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;extractTestSegments&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Whether to extract random test segments from this text set.&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">false</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;testSegmentProportion&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The decimal value of the test segments proportion. Only applies when &#39;extractTestSegments&#39; is set to &#39;true&#39;.&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">0</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;isBaseTextSet&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Use this text set as the base text set.&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">false</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;isCounterTextSet&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Use this text set as the counter text set.&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">false</span> 
+
+                            <span class="p">}</span> 
+
+                        <span class="p">}</span> 
+
+                    <span class="p">}</span> 
+
+                <span class="p">}</span> 
+
+            <span class="p">}</span> 
+
+        <span class="p">},</span> 
+
+        <span class="s2">&quot;globalOption&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Options applying to all text sets in the experiment.&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                <span class="s2">&quot;outputSize&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of Zeta words to output.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;exclusiveMinimum&quot;</span><span class="p">:</span> <span class="mi">0</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;outputMinZetaScore&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The minimal score of Zeta words for output.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">0</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;testSegmentExtractionRandomSeed&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The seed used for selecting random test segments.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;specialWords&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A list of special words to handle.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span> 
+
+                    <span class="p">},</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[]</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;specialWordsOption&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The way of handling special words.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span> 
+
+                        <span class="p">{</span> 
+
+                            <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Include the special words, hide unspecified words&quot;</span> 
+
+                        <span class="p">},</span> 
+
+                        <span class="p">{</span> 
+
+                            <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Hide the special words, include unspecified words&quot;</span> 
+
+                        <span class="p">}</span> 
+
+                    <span class="p">]</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;numberOfNGrams&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of n-grams used for frequencies.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;exclusiveMinimum&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">1</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;excludeXMLTags&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;List of XML tags to be excluded. Words within the specified tags will not be counted.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[],</span> 
+
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The name of the XML tag (without &#39;&lt;&#39; and &#39;&gt;&#39;)&quot;</span> 
+
+                    <span class="p">}</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;ignoreXML&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Ignore all XML tags.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">false</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;excludeWords&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;List of words to be excluded.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[],</span> 
+
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;includeHomograph&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Include the homograph forms.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">false</span> 
+
+                <span class="p">}</span> 
+
+            <span class="p">}</span> 
+
+        <span class="p">}</span> 
+
+    <span class="p">}</span> 
+
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
+
+    <span class="s2">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;https://intelligentarchive.sydney.edu.au/api/v1/schemas/response-zeta.schema.json&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Response - Burrows&#39; Zeta&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The response object from the Burrows&#39; Zeta feature.&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+        <span class="s2">&quot;textSets&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The Burrows&#39; Zeta results of all text sets.&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                <span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/$defs/zetaResult&quot;</span> 
+
+            <span class="p">}</span> 
+
+        <span class="p">},</span> 
+
+        <span class="s2">&quot;testSets&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The Burrows&#39; Zeta results of test text sets with &#39;extractTestSegments&#39; enabled in the request. Each test set will contain the zeta reulsts of randomly selected blocks.&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                <span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/$defs/zetaResult&quot;</span> 
+
+            <span class="p">}</span> 
+
+        <span class="p">},</span> 
+
+        <span class="s2">&quot;zetaScores&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Scores of zeta words. Only applies when the base and counter text sets are specified from the request.&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Scores of a zeta word&quot;</span><span class="p">,</span> 
+
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;word&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The zeta word.&quot;</span> 
+
+                    <span class="p">},</span> 
+
+                    <span class="s2">&quot;training&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The training score of the zeta word.&quot;</span> 
+
+                    <span class="p">},</span> 
+
+                    <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The test score of the zeta word.&quot;</span> 
+
+                    <span class="p">}</span> 
+
+                <span class="p">}</span> 
+
+            <span class="p">}</span> 
+
+        <span class="p">}</span> 
+
+    <span class="p">},</span> 
+
+    <span class="s2">&quot;$defs&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+        <span class="s2">&quot;zetaWord&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The zeta word with frequency data.&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                <span class="s2">&quot;word&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The zeta word.&quot;</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The frequency of the zeta word.&quot;</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;hits&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of blocks where this zeta word appears.&quot;</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;proportion&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The decimal value of the frequency proportion.&quot;</span> 
+
+                <span class="p">}</span> 
+
+            <span class="p">}</span> 
+
+        <span class="p">},</span> 
+
+        <span class="s2">&quot;zetaResult&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Burrows&#39; Zeta result of a text set.&quot;</span><span class="p">,</span> 
+
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the text set. This is used for matching the test sets to their original text sets. If the text set is not stored in SIA, an arbitrary ID will be assigned.&quot;</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Name of the text set.&quot;</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;numOfBlocks&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of segmented blocks in this text set.&quot;</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;zetaWords&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;List of zeta words with frequency data in the text set.&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/$defs/zetaWord&quot;</span> 
+
+                    <span class="p">}</span> 
+
+                <span class="p">},</span> 
+
+                <span class="s2">&quot;blocks&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Burrows&#39; Zeta result of a text block from the text set.&quot;</span><span class="p">,</span> 
+
+                        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The name of the text block in the format of &#39;Text title (Sequence Number)&#39;.&quot;</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;wordCount&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of words in this block.&quot;</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;wordProportion&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The proprtion of zeta words to all words from this block.&quot;</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;uniqueWordCount&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of unique words in this block.&quot;</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;uniqueWordProportion&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The proprtion of zeta words to unique words from this block.&quot;</span> 
+
+                            <span class="p">},</span> 
+
+                            <span class="s2">&quot;zetaWords&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;List of zeta words with frequency data in this block.&quot;</span><span class="p">,</span> 
+
+                                <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
+
+                                    <span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;#/$defs/zetaWord&quot;</span> 
+
+                                <span class="p">}</span> 
+
+                            <span class="p">}</span> 
+
+                        <span class="p">}</span> 
+
+                    <span class="p">}</span> 
+
+                <span class="p">}</span> 
+
+            <span class="p">}</span> 
+
+        <span class="p">}</span> 
+
+    <span class="p">}</span> 
+
+<span class="p">}</span> 
+</pre></div>
+</div>
 </section>
 </section>
 
