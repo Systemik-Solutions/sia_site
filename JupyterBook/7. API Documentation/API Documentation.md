@@ -32,7 +32,7 @@ View the information of a text owned by the authenticated user. `{id}` is the ID
 
 **Response**
 
-The text object of the given ID. 
+The [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) of the given ID. 
 
 ##### Create 
 
@@ -42,11 +42,11 @@ Create a new text.
 
 **Request** 
 
-The request body should be a text object for the new text. The text object should omit all `readOnly` properties, and they will be ignored even if they exist in the request body. 
+The request body should be a [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) for the new text. The text object should omit all `readOnly` properties, and they will be ignored even if they exist in the request body. 
 
 **Response** 
 
-The text object of the newly created text. 
+The [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) of the newly created text. 
 
 #### Update 
 
@@ -56,11 +56,11 @@ Update a text owned by the authenticated user. `{id}` is the ID of text.
 
 **Request** 
 
-A text object with only the updated properties. Properties not specified in the request body will remain untouched. 
+A [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) with only the updated properties. Properties not specified in the request body will remain untouched. 
 
 **Response** 
 
-The full text object of the updated text. 
+The full [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) of the updated text. 
 
 #### Delete 
 
@@ -70,7 +70,7 @@ Delete a text owned by the authenticated user. `{id}` is the ID of text.
 
 **Response** 
 
-The full text object of the deleted text. 
+The full [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) of the deleted text. 
 
 ### Text Sets
 
@@ -86,7 +86,7 @@ List all text sets owned by the authenticated user.
 
 **Response** 
 
-An array of text set objects. 
+An array of [text set objects](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7). 
 
 #### View 
 
@@ -100,7 +100,7 @@ View the information of a text set owned by the authenticated user. `{id}` is th
 
 **Response** 
 
-The text set object of the given ID. 
+The [text set object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7) of the given ID. 
 
 #### Create 
 
@@ -110,13 +110,13 @@ Create a new text set.
 
 **Request** 
 
-A text set object for the new text set. The object should omit all `readOnly` properties, and they will be ignored even if they exist in the request body. 
+A [text set object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7) for the new text set. The object should omit all `readOnly` properties, and they will be ignored even if they exist in the request body. 
 
-The `texts` property of the text set object can contain the list of text objects to be included in the text set. If the `id` is valid and specified in a text object, it will associate that existing text to the text set. Otherwise, it will try to create the text first and then associate the text to the text set. 
+The `texts` property of the text set object can contain the list of [text objects](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) to be included in the text set. If the `id` is valid and specified in a text object, it will associate that existing text to the text set. Otherwise, it will try to create the text first and then associate the text to the text set. 
 
 **Response** 
 
-The text set object of the newly created text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API. 
+The [text set object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7) of the newly created text set. For each [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) in the text set, it will omit the content of the text. To get the content of a text, use the [view text API](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#view). 
 
 #### Update 
 
@@ -126,23 +126,23 @@ Update a text set owned by the authenticated user. `{id}` is the ID of text set.
 
 **Request** 
 
-A text object with only the updated properties. Properties not specified in the request body will remain untouched. 
+A [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) with only the updated properties. Properties not specified in the request body will remain untouched. 
 
-Similar to the create API, `id` of text objects can be set for existing texts. Or it will create new texts for the text set. Note that by setting up the texts property, it will overwrite the entire collection of texts for the text set. 
+Similar to the [create API](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#create), `id` of text objects can be set for existing texts. Or it will create new texts for the text set. Note that by setting up the texts property, it will overwrite the entire collection of texts for the text set. 
 
 **Response** 
 
-The text set object of the updated text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API. 
+The [text set object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7) of the updated text set. For each [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) in the text set, it will omit the content of the text. To get the content of a text, use the [view text API](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#view). 
 
 #### Delete 
 
 `DELETE /text-sets/{id}` 
 
-Delete a text set owned by the authenticated user. `{id}` is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the delete text API. 
+Delete a text set owned by the authenticated user. `{id}` is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the [delete text API](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#delete). 
 
 **Response** 
 
-The text set object of the deleted text set. For each text object in the text set, it will omit the content of the text. 
+The text set object of the deleted text set. For each [text object](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6) in the text set, it will omit the content of the text. 
 
 ### Features
 
