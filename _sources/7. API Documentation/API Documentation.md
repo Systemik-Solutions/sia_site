@@ -150,7 +150,7 @@ The text set object of the deleted text set. For each [text object](https://syst
 
 `POST /concordance` 
 
-Running concordance on a single text. See Setting texts and text sets section about how to set text property. 
+Running concordance on a single text. See [Setting texts and text sets](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#setting-texts-and-text-sets) section about how to set text property. 
 
 **Request** 
 
@@ -185,7 +185,7 @@ Running concordance on a single text. See Setting texts and text sets section ab
 
                 }, 
 
-                {"$ref": "/api/v1/schemas/text.schema.json"} 
+                {"$ref": "[/api/v1/schemas/text.schema.json](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#json-schema)"} 
 
             ] 
 
