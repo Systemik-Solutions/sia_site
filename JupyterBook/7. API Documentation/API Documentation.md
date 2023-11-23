@@ -22,7 +22,7 @@ List all texts owned by the authenticated user.
 
 **Response** 
 
-An array of [text objects](#id6). 
+An array of [text objects](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6). 
 
 ##### View
 
