@@ -23,6 +23,7 @@ Running concordance on a single text. See Setting texts and text sets section ab
 
 **Request** 
 
+```
 { 
 
     "$id": "https://intelligentarchive.sydney.edu.au/api/v1/schemas/request-concordance.schema.json", 
@@ -113,10 +114,12 @@ Running concordance on a single text. See Setting texts and text sets section ab
 
     } 
 
-} 
+}
+```
 
-Response 
+**Response**
 
+```
 { 
 
     "$id": "https://intelligentarchive.sydney.edu.au/api/v1/schemas/response-concordance.schema.json", 
@@ -187,4 +190,5 @@ Response
 
     } 
 
-} 
+}
+```
