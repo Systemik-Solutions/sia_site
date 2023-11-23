@@ -29,6 +29,70 @@ You can’t edit the file of a Text. Instead, delete the existing Text and add a
 
 ### API Process
 
+**API base path**: `/api/v1/`
+
+#### View all
+
+`GET /texts`
+
+List all texts owned by the authenticated user. 
+
+**URL Parameters**
+
+`showcontent`: setting to `1` will include the content of texts in the response. By default, it is set to `0` to omit the content of texts. 
+
+**Response** 
+
+An array of text objects. 
+
+##### View
+
+`GET /texts/{id}`
+
+View the information of a text owned by the authenticated user. `{id}` is the ID of text. 
+
+**Response**
+
+The text object of the given ID. 
+
+##### Create 
+
+`POST /texts` 
+
+Create a new text. 
+
+**Request** 
+
+The request body should be a text object for the new text. The text object should omit all `readOnly` properties, and they will be ignored even if they exist in the request body. 
+
+**Response** 
+
+The text object of the newly created text. 
+
+#### Update 
+
+`PUT /texts/{id}`
+
+Update a text owned by the authenticated user. `{id}` is the ID of text. 
+
+**Request** 
+
+A text object with only the updated properties. Properties not specified in the request body will remain untouched. 
+
+**Response** 
+
+The full text object of the updated text. 
+
+#### Delete 
+
+`DELETE /texts/{id}` 
+
+Delete a text owned by the authenticated user. `{id}` is the ID of text. 
+
+**Response** 
+
+The full text object of the deleted text. 
+
 ## Text Sets
 
 ### Platform Process
@@ -68,75 +132,9 @@ You will see your copy in the Text Set list.
 
 ### API Process
 
-**API base path**: /api/v1/
+**API base path**: `/api/v1/`
 
-#### Texts
-
-##### View all
-
-`GET /texts`
-
-List all texts owned by the authenticated user. 
-
-**URL Parameters**
-
-`showcontent`: setting to `1` will include the content of texts in the response. By default, it is set to `0` to omit the content of texts. 
-
-**Response** 
-
-An array of text objects. 
-
-##### View
-
-`GET /texts/{id}`
-
-View the information of a text owned by the authenticated user. `{id}` is the ID of text. 
-
-**Response**
-
-The text object of the given ID. 
-
-##### Create 
-
-`POST /texts` 
-
-Create a new text. 
-
-**Request** 
-
-The request body should be a text object for the new text. The text object should omit all `readOnly` properties, and they will be ignored even if they exist in the request body. 
-
-**Response** 
-
-The text object of the newly created text. 
-
-##### Update 
-
-`PUT /texts/{id}`
-
-Update a text owned by the authenticated user. `{id}` is the ID of text. 
-
-**Request** 
-
-A text object with only the updated properties. Properties not specified in the request body will remain untouched. 
-
-**Response** 
-
-The full text object of the updated text. 
-
-##### Delete 
-
-`DELETE /texts/{id}` 
-
-Delete a text owned by the authenticated user. `{id}` is the ID of text. 
-
-**Response** 
-
-The full text object of the deleted text. 
-
-#### Text sets 
-
-##### View all 
+#### View all 
 
 `GET /text-sets` 
 
@@ -150,7 +148,7 @@ List all text sets owned by the authenticated user.
 
 An array of text set objects. 
 
-##### View 
+#### View 
 
 `GET /text-sets/{id}` 
 
@@ -164,7 +162,7 @@ View the information of a text set owned by the authenticated user. `{id}` is th
 
 The text set object of the given ID. 
 
-##### Create 
+#### Create 
 
 `POST /text-sets` 
 
@@ -180,7 +178,7 @@ The `texts` property of the text set object can contain the list of text objects
 
 The text set object of the newly created text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API. 
 
-##### Update 
+#### Update 
 
 `PUT /text-sets/{id}` 
 
@@ -196,7 +194,7 @@ Similar to the create API, `id` of text objects can be set for existing texts. O
 
 The text set object of the updated text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API. 
 
-##### Delete 
+#### Delete 
 
 `DELETE /text-sets/{id}` 
 
