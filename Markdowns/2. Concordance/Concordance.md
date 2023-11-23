@@ -14,7 +14,6 @@ An example of how you might use a Concordance is to map the occurrence of the wo
 
 You’ll see the results on the right. You can copy the data to your clipboard or export it as an .xlsx or .zip file.
 
-***
 ## API Process
 
 `POST /concordance` 
