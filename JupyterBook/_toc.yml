@@ -21,3 +21,6 @@ parts:
       - file: 6. Case Studies/Case 1
       - file: 6. Case Studies/Case 2
       - file: 6. Case Studies/Case 3
+  - caption: 7. API Documentation
+    chapters:
+      - file: 7. API Documentation/API Documentation
