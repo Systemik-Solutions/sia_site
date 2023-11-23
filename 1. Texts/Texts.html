@@ -402,7 +402,10 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-text-set">Copy a Text Set</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">API Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">API Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Texts</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -495,6 +498,77 @@ document.write(`
 </section>
 <section id="id3">
 <h3>API Process<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p><strong>API base path</strong>: /api/v1/</p>
+<section id="id4">
+<h4>Texts<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<p>**View all **</p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/texts</span></code></p>
+<p>List all texts owned by the authenticated user.</p>
+<p>URL Parameters</p>
+<p>showcontent: setting to 1 will include the content of texts in the response. By default, it is set to 0 to omit the content of texts.</p>
+<p>Response</p>
+<p>An array of text objects.</p>
+<p>View</p>
+<p>GET /texts/{id}</p>
+<p>View the information of a text owned by the authenticated user. {id} is the ID of text.</p>
+<p>Response</p>
+<p>The text object of the given ID.</p>
+<p>Create</p>
+<p>POST /texts</p>
+<p>Create a new text.</p>
+<p>Request</p>
+<p>The request body should be a text object for the new text. The text object should omit all readOnly properties, and they will be ignored even if they exist in the request body.</p>
+<p>Response</p>
+<p>The text object of the newly created text.</p>
+<p>Update</p>
+<p>PUT /texts/{id}</p>
+<p>Update a text owned by the authenticated user. {id} is the ID of text.</p>
+<p>Request</p>
+<p>A text object with only the updated properties. Properties not specified in the request body will remain untouched.</p>
+<p>Response</p>
+<p>The full text object of the updated text.</p>
+<p>Delete</p>
+<p>DELETE /texts/{id}</p>
+<p>Delete a text owned by the authenticated user. {id} is the ID of text.</p>
+<p>Response</p>
+<p>The full text object of the deleted text.</p>
+<p>Text sets</p>
+<p>View all</p>
+<p>GET /text-sets</p>
+<p>List all text sets owned by the authenticated user.</p>
+<p>URL Parameters</p>
+<p>showcontent: setting to 1 will include the content of texts in the response. By default, it is set to 0 to omit the content of texts.</p>
+<p>Response</p>
+<p>An array of text set objects.</p>
+<p>View</p>
+<p>GET /text-sets/{id}</p>
+<p>View the information of a text set owned by the authenticated user. {id} is the ID of text set.</p>
+<p>URL Parameters</p>
+<p>showcontent: setting to 1 will include the content of texts in the response. By default, it is set to 0 to omit the content of texts.</p>
+<p>Response</p>
+<p>The text set object of the given ID.</p>
+<p>Create</p>
+<p>POST /text-sets</p>
+<p>Create a new text set.</p>
+<p>Request</p>
+<p>A text set object for the new text set. The object should omit all readOnly properties, and they will be ignored even if they exist in the request body.</p>
+<p>The texts property of the text set object can contain the list of text objects to be included in the text set. If the id is valid and specified in a text object, it will associate that existing text to the text set. Otherwise, it will try to create the text first and then associate the text to the text set.</p>
+<p>Response</p>
+<p>The text set object of the newly created text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API.</p>
+<p>Update</p>
+<p>PUT /text-sets/{id}</p>
+<p>Update a text set owned by the authenticated user. {id} is the ID of text set.</p>
+<p>Request</p>
+<p>A text object with only the updated properties. Properties not specified in the request body will remain untouched.</p>
+<p>Similar to the create API, id of text objects can be set for existing texts. Or it will create new texts for the text set. Note that by setting up the texts property, it will overwrite the entire collection of texts for the text set.</p>
+<p>Response</p>
+<p>The text set object of the updated text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API.</p>
+<p>Delete</p>
+<p>DELETE /text-sets/{id}</p>
+<p>Delete a text set owned by the authenticated user. {id} is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the delete text API.</p>
+<p>Response</p>
+<p>The text set object of the deleted text set. For each text object in the text set, it will omit the content of the text.</p>
+</section>
 </section>
 </section>
 </section>
@@ -579,7 +653,10 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-text-set">Copy a Text Set</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">API Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">API Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Texts</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
