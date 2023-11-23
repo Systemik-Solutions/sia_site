@@ -27,6 +27,7 @@ You will see your new Text in the Text list. Click its title to open it.
 
 You can’t edit the file of a Text. Instead, delete the existing Text and add a new one using a different file.
 
+***
 ### API Process
 
 **API base path**: `/api/v1/`
@@ -130,6 +131,7 @@ You will see your new Text Set in the Text Set list. Click its title to open it.
 
 You will see your copy in the Text Set list.
 
+***
 ### API Process
 
 **API base path**: `/api/v1/`
