@@ -1,5 +1,7 @@
 # API Documentation
 
+This documentation details specification for SIA API. It uses [JSON Schema](https://json-schema.org/) to describe the API request and response data objects. Note that the JSON Schema from this documentation is only used for descriptive purposes. It should be by no means used for validations. 
+
 ## API base path
 
 `/api/v1/`
@@ -20,7 +22,7 @@ List all texts owned by the authenticated user.
 
 **Response** 
 
-An array of text objects. 
+An array of [text objects](#id6). 
 
 ##### View
 
