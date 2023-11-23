@@ -584,7 +584,7 @@ document.write(`
 
                 <span class="p">},</span> 
 
-                <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;[/api/v1/schemas/text.schema.json](https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#json-schema)&quot;</span><span class="p">}</span> 
+                <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/v1/schemas/text.schema.json&quot;</span><span class="p">}</span> 
 
             <span class="p">]</span> 
 
@@ -725,7 +725,7 @@ document.write(`
 <section id="word-frequencies">
 <h4>Word Frequencies<a class="headerlink" href="#word-frequencies" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/word-frequencies</span></code></p>
-<p>Run word frequencies on texts or text sets. The word frequencies can be run on either texts or text sets. See Setting texts and text sets section about how to set the <code class="docutils literal notranslate"><span class="pre">text</span></code> or <code class="docutils literal notranslate"><span class="pre">textSet</span></code> property for the API. However, both <code class="docutils literal notranslate"><span class="pre">text</span></code> and <code class="docutils literal notranslate"><span class="pre">textSet</span></code> cannot be set at the same time in a API call.</p>
+<p>Run word frequencies on texts or text sets. The word frequencies can be run on either texts or text sets. See <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#setting-texts-and-text-sets">Setting texts and text sets</a> section about how to set the <code class="docutils literal notranslate"><span class="pre">text</span></code> or <code class="docutils literal notranslate"><span class="pre">textSet</span></code> property for the API. However, both <code class="docutils literal notranslate"><span class="pre">text</span></code> and <code class="docutils literal notranslate"><span class="pre">textSet</span></code> cannot be set at the same time in a API call.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">options</span></code> of word frequencies can be set up by the option property with a word frequency option object.</p>
 <p><strong>Request</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
@@ -945,7 +945,7 @@ document.write(`
 <section id="divergence">
 <h4>Divergence<a class="headerlink" href="#divergence" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/divergence</span></code></p>
-<p>Run divergence based on a reference text set and a comparison text set. See Setting texts and text sets section about how to set the <code class="docutils literal notranslate"><span class="pre">referenceTextSet</span></code> and <code class="docutils literal notranslate"><span class="pre">comparisonTextSet</span></code> for the API.</p>
+<p>Run divergence based on a reference text set and a comparison text set. See <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#setting-texts-and-text-sets">Setting texts and text sets</a> section about how to set the <code class="docutils literal notranslate"><span class="pre">referenceTextSet</span></code> and <code class="docutils literal notranslate"><span class="pre">comparisonTextSet</span></code> for the API.</p>
 <p>The divergence calculations are based on the word frequencies. Therefore, the options for running the word frequencies can be set by the property <code class="docutils literal notranslate"><span class="pre">wordFrequenciesOption</span></code>.</p>
 <p><strong>Request</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
@@ -1497,7 +1497,7 @@ document.write(`
 <section id="burrows-zeta">
 <h4>Burrows’ Zeta<a class="headerlink" href="#burrows-zeta" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/zeta</span></code></p>
-<p>Run Burrows’ Zeta experiment on text sets. See Setting texts and text sets section about how to set text sets for the API.</p>
+<p>Run Burrows’ Zeta experiment on text sets. See <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#setting-texts-and-text-sets">Setting texts and text sets</a> section about how to set text sets for the API.</p>
 <p>Each text set included in the experiment can have different options via <code class="docutils literal notranslate"><span class="pre">localOption</span></code>. There are also global settings from <code class="docutils literal notranslate"><span class="pre">globalOption</span></code> which apply to all text sets.</p>
 <p><strong>Request</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
@@ -2241,12 +2241,12 @@ document.write(`
 <p>Texts can be specified via one of the following methods when calling the feature API such as word frequencies API:</p>
 <ul class="simple">
 <li><p>using an existing text from SIA by specifying the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the text.</p></li>
-<li><p>using a constructed text object. <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> properties of the text object are not required in this case. The process will use the content and metadata from the text object. However, it will not save the text data into SIA.</p></li>
+<li><p>using a constructed <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a>. <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> properties of the text object are not required in this case. The process will use the content and metadata from the text object. However, it will not save the text data into SIA.</p></li>
 </ul>
 <p>Text sets can be specified in similar methods:</p>
 <ul class="simple">
 <li><p>using an existing text set from SIA by providing the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the text set.</p></li>
-<li><p>using a constructed text set object.</p></li>
+<li><p>using a constructed <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text set object</a>.</p></li>
 </ul>
 </section>
 <section id="authentication">
