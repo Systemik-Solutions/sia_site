@@ -72,136 +72,136 @@ You will see your copy in the Text Set list.
 
 #### Texts
 
-**View all **
+##### View all
 
 `GET /texts`
 
 List all texts owned by the authenticated user. 
 
-URL Parameters 
+**URL Parameters**
 
-showcontent: setting to 1 will include the content of texts in the response. By default, it is set to 0 to omit the content of texts. 
+`showcontent`: setting to `1` will include the content of texts in the response. By default, it is set to `0` to omit the content of texts. 
 
-Response 
+**Response** 
 
 An array of text objects. 
 
-View 
+##### View
 
-GET /texts/{id} 
+`GET /texts/{id}`
 
-View the information of a text owned by the authenticated user. {id} is the ID of text. 
+View the information of a text owned by the authenticated user. `{id}` is the ID of text. 
 
-Response 
+**Response**
 
 The text object of the given ID. 
 
-Create 
+##### Create 
 
-POST /texts 
+`POST /texts` 
 
 Create a new text. 
 
-Request 
+**Request** 
 
-The request body should be a text object for the new text. The text object should omit all readOnly properties, and they will be ignored even if they exist in the request body. 
+The request body should be a text object for the new text. The text object should omit all `readOnly` properties, and they will be ignored even if they exist in the request body. 
 
-Response 
+**Response** 
 
 The text object of the newly created text. 
 
-Update 
+##### Update 
 
-PUT /texts/{id} 
+`PUT /texts/{id}`
 
-Update a text owned by the authenticated user. {id} is the ID of text. 
+Update a text owned by the authenticated user. `{id}` is the ID of text. 
 
-Request 
+**Request** 
 
 A text object with only the updated properties. Properties not specified in the request body will remain untouched. 
 
-Response 
+**Response** 
 
 The full text object of the updated text. 
 
-Delete 
+##### Delete 
 
-DELETE /texts/{id} 
+`DELETE /texts/{id}` 
 
-Delete a text owned by the authenticated user. {id} is the ID of text. 
+Delete a text owned by the authenticated user. `{id}` is the ID of text. 
 
-Response 
+**Response** 
 
 The full text object of the deleted text. 
 
-Text sets 
+#### Text sets 
 
-View all 
+##### View all 
 
-GET /text-sets 
+`GET /text-sets` 
 
 List all text sets owned by the authenticated user. 
 
-URL Parameters 
+**URL Parameters** 
 
-showcontent: setting to 1 will include the content of texts in the response. By default, it is set to 0 to omit the content of texts. 
+`showcontent`: setting to `1` will include the content of texts in the response. By default, it is set to `0` to omit the content of texts. 
 
-Response 
+**Response** 
 
 An array of text set objects. 
 
-View 
+##### View 
 
-GET /text-sets/{id} 
+`GET /text-sets/{id}` 
 
-View the information of a text set owned by the authenticated user. {id} is the ID of text set. 
+View the information of a text set owned by the authenticated user. `{id}` is the ID of text set. 
 
-URL Parameters 
+**URL Parameters** 
 
-showcontent: setting to 1 will include the content of texts in the response. By default, it is set to 0 to omit the content of texts. 
+`showcontent`: setting to `1` will include the content of texts in the response. By default, it is set to `0` to omit the content of texts. 
 
-Response 
+**Response** 
 
 The text set object of the given ID. 
 
-Create 
+##### Create 
 
-POST /text-sets 
+`POST /text-sets` 
 
 Create a new text set. 
 
-Request 
+**Request** 
 
-A text set object for the new text set. The object should omit all readOnly properties, and they will be ignored even if they exist in the request body. 
+A text set object for the new text set. The object should omit all `readOnly` properties, and they will be ignored even if they exist in the request body. 
 
-The texts property of the text set object can contain the list of text objects to be included in the text set. If the id is valid and specified in a text object, it will associate that existing text to the text set. Otherwise, it will try to create the text first and then associate the text to the text set. 
+The `texts` property of the text set object can contain the list of text objects to be included in the text set. If the `id` is valid and specified in a text object, it will associate that existing text to the text set. Otherwise, it will try to create the text first and then associate the text to the text set. 
 
-Response 
+**Response** 
 
 The text set object of the newly created text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API. 
 
-Update 
+##### Update 
 
-PUT /text-sets/{id} 
+`PUT /text-sets/{id}` 
 
-Update a text set owned by the authenticated user. {id} is the ID of text set. 
+Update a text set owned by the authenticated user. `{id}` is the ID of text set. 
 
-Request 
+**Request** 
 
 A text object with only the updated properties. Properties not specified in the request body will remain untouched. 
 
-Similar to the create API, id of text objects can be set for existing texts. Or it will create new texts for the text set. Note that by setting up the texts property, it will overwrite the entire collection of texts for the text set. 
+Similar to the create API, `id` of text objects can be set for existing texts. Or it will create new texts for the text set. Note that by setting up the texts property, it will overwrite the entire collection of texts for the text set. 
 
-Response 
+**Response** 
 
 The text set object of the updated text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API. 
 
-Delete 
+##### Delete 
 
-DELETE /text-sets/{id} 
+`DELETE /text-sets/{id}` 
 
-Delete a text set owned by the authenticated user. {id} is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the delete text API. 
+Delete a text set owned by the authenticated user. `{id}` is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the delete text API. 
 
-Response 
+**Response** 
 
 The text set object of the deleted text set. For each text object in the text set, it will omit the content of the text. 
