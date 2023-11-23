@@ -470,16 +470,16 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/texts/{id}</span></code></p>
 <p>View the information of a text owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text.</p>
 <p><strong>Response</strong></p>
-<p>The text object of the given ID.</p>
+<p>The <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> of the given ID.</p>
 </section>
 <section id="create">
 <h5>Create<a class="headerlink" href="#create" title="Permalink to this heading">#</a></h5>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/texts</span></code></p>
 <p>Create a new text.</p>
 <p><strong>Request</strong></p>
-<p>The request body should be a text object for the new text. The text object should omit all <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> properties, and they will be ignored even if they exist in the request body.</p>
+<p>The request body should be a <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> for the new text. The text object should omit all <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> properties, and they will be ignored even if they exist in the request body.</p>
 <p><strong>Response</strong></p>
-<p>The text object of the newly created text.</p>
+<p>The <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> of the newly created text.</p>
 </section>
 </section>
 <section id="update">
@@ -487,16 +487,16 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/texts/{id}</span></code></p>
 <p>Update a text owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text.</p>
 <p><strong>Request</strong></p>
-<p>A text object with only the updated properties. Properties not specified in the request body will remain untouched.</p>
+<p>A <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> with only the updated properties. Properties not specified in the request body will remain untouched.</p>
 <p><strong>Response</strong></p>
-<p>The full text object of the updated text.</p>
+<p>The full <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> of the updated text.</p>
 </section>
 <section id="delete">
 <h4>Delete<a class="headerlink" href="#delete" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/texts/{id}</span></code></p>
 <p>Delete a text owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text.</p>
 <p><strong>Response</strong></p>
-<p>The full text object of the deleted text.</p>
+<p>The full <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> of the deleted text.</p>
 </section>
 </section>
 <section id="text-sets">
@@ -508,7 +508,7 @@ document.write(`
 <p><strong>URL Parameters</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">showcontent</span></code>: setting to <code class="docutils literal notranslate"><span class="pre">1</span></code> will include the content of texts in the response. By default, it is set to <code class="docutils literal notranslate"><span class="pre">0</span></code> to omit the content of texts.</p>
 <p><strong>Response</strong></p>
-<p>An array of text set objects.</p>
+<p>An array of <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7">text set objects</a>.</p>
 </section>
 <section id="id2">
 <h4>View<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
@@ -517,34 +517,34 @@ document.write(`
 <p><strong>URL Parameters</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">showcontent</span></code>: setting to <code class="docutils literal notranslate"><span class="pre">1</span></code> will include the content of texts in the response. By default, it is set to <code class="docutils literal notranslate"><span class="pre">0</span></code> to omit the content of texts.</p>
 <p><strong>Response</strong></p>
-<p>The text set object of the given ID.</p>
+<p>The <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7">text set object</a> of the given ID.</p>
 </section>
 <section id="id3">
 <h4>Create<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/text-sets</span></code></p>
 <p>Create a new text set.</p>
 <p><strong>Request</strong></p>
-<p>A text set object for the new text set. The object should omit all <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> properties, and they will be ignored even if they exist in the request body.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">texts</span></code> property of the text set object can contain the list of text objects to be included in the text set. If the <code class="docutils literal notranslate"><span class="pre">id</span></code> is valid and specified in a text object, it will associate that existing text to the text set. Otherwise, it will try to create the text first and then associate the text to the text set.</p>
+<p>A <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7">text set object</a> for the new text set. The object should omit all <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> properties, and they will be ignored even if they exist in the request body.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">texts</span></code> property of the text set object can contain the list of <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text objects</a> to be included in the text set. If the <code class="docutils literal notranslate"><span class="pre">id</span></code> is valid and specified in a text object, it will associate that existing text to the text set. Otherwise, it will try to create the text first and then associate the text to the text set.</p>
 <p><strong>Response</strong></p>
-<p>The text set object of the newly created text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API.</p>
+<p>The <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7">text set object</a> of the newly created text set. For each <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> in the text set, it will omit the content of the text. To get the content of a text, use the <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#view">view text API</a>.</p>
 </section>
 <section id="id4">
 <h4>Update<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/text-sets/{id}</span></code></p>
 <p>Update a text set owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text set.</p>
 <p><strong>Request</strong></p>
-<p>A text object with only the updated properties. Properties not specified in the request body will remain untouched.</p>
-<p>Similar to the create API, <code class="docutils literal notranslate"><span class="pre">id</span></code> of text objects can be set for existing texts. Or it will create new texts for the text set. Note that by setting up the texts property, it will overwrite the entire collection of texts for the text set.</p>
+<p>A <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> with only the updated properties. Properties not specified in the request body will remain untouched.</p>
+<p>Similar to the <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#create">create API</a>, <code class="docutils literal notranslate"><span class="pre">id</span></code> of text objects can be set for existing texts. Or it will create new texts for the text set. Note that by setting up the texts property, it will overwrite the entire collection of texts for the text set.</p>
 <p><strong>Response</strong></p>
-<p>The text set object of the updated text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API.</p>
+<p>The <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id7">text set object</a> of the updated text set. For each <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> in the text set, it will omit the content of the text. To get the content of a text, use the <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#view">view text API</a>.</p>
 </section>
 <section id="id5">
 <h4>Delete<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/text-sets/{id}</span></code></p>
-<p>Delete a text set owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the delete text API.</p>
+<p>Delete a text set owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#delete">delete text API</a>.</p>
 <p><strong>Response</strong></p>
-<p>The text set object of the deleted text set. For each text object in the text set, it will omit the content of the text.</p>
+<p>The text set object of the deleted text set. For each <a class="reference external" href="https://systemik-solutions.github.io/sia_site/7.%20API%20Documentation/API%20Documentation.html#id6">text object</a> in the text set, it will omit the content of the text.</p>
 </section>
 </section>
 <section id="features">
