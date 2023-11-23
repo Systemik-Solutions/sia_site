@@ -395,16 +395,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-text">Edit a Text</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-process">API Process</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#view-all">View all</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#view">View</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#create">Create</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#update">Update</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">Delete</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-process">API Process</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-sets">Text Sets</a><ul class="nav section-nav flex-column">
@@ -415,14 +406,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-text-set">Copy a Text Set</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">API Process</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">View all</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">View</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Create</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Update</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Delete</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">API Process</a></li>
 </ul>
 </li>
 </ul>
@@ -466,51 +450,8 @@ document.write(`
 <p>You can’t edit the file of a Text. Instead, delete the existing Text and add a new one using a different file.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="api-process">
 <h3>API Process<a class="headerlink" href="#api-process" title="Permalink to this heading">#</a></h3>
-<p><strong>API base path</strong>: <code class="docutils literal notranslate"><span class="pre">/api/v1/</span></code></p>
-<section id="view-all">
-<h4>View all<a class="headerlink" href="#view-all" title="Permalink to this heading">#</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/texts</span></code></p>
-<p>List all texts owned by the authenticated user.</p>
-<p><strong>URL Parameters</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">showcontent</span></code>: setting to <code class="docutils literal notranslate"><span class="pre">1</span></code> will include the content of texts in the response. By default, it is set to <code class="docutils literal notranslate"><span class="pre">0</span></code> to omit the content of texts.</p>
-<p><strong>Response</strong></p>
-<p>An array of text objects.</p>
-<section id="view">
-<h5>View<a class="headerlink" href="#view" title="Permalink to this heading">#</a></h5>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/texts/{id}</span></code></p>
-<p>View the information of a text owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text.</p>
-<p><strong>Response</strong></p>
-<p>The text object of the given ID.</p>
-</section>
-<section id="create">
-<h5>Create<a class="headerlink" href="#create" title="Permalink to this heading">#</a></h5>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/texts</span></code></p>
-<p>Create a new text.</p>
-<p><strong>Request</strong></p>
-<p>The request body should be a text object for the new text. The text object should omit all <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> properties, and they will be ignored even if they exist in the request body.</p>
-<p><strong>Response</strong></p>
-<p>The text object of the newly created text.</p>
-</section>
-</section>
-<section id="update">
-<h4>Update<a class="headerlink" href="#update" title="Permalink to this heading">#</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/texts/{id}</span></code></p>
-<p>Update a text owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text.</p>
-<p><strong>Request</strong></p>
-<p>A text object with only the updated properties. Properties not specified in the request body will remain untouched.</p>
-<p><strong>Response</strong></p>
-<p>The full text object of the updated text.</p>
-</section>
-<section id="delete">
-<h4>Delete<a class="headerlink" href="#delete" title="Permalink to this heading">#</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/texts/{id}</span></code></p>
-<p>Delete a text owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text.</p>
-<p><strong>Response</strong></p>
-<p>The full text object of the deleted text.</p>
-</section>
 </section>
 </section>
 <section id="text-sets">
@@ -556,55 +497,8 @@ document.write(`
 <p>You will see your copy in the Text Set list.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="id3">
 <h3>API Process<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<p><strong>API base path</strong>: <code class="docutils literal notranslate"><span class="pre">/api/v1/</span></code></p>
-<section id="id4">
-<h4>View all<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/text-sets</span></code></p>
-<p>List all text sets owned by the authenticated user.</p>
-<p><strong>URL Parameters</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">showcontent</span></code>: setting to <code class="docutils literal notranslate"><span class="pre">1</span></code> will include the content of texts in the response. By default, it is set to <code class="docutils literal notranslate"><span class="pre">0</span></code> to omit the content of texts.</p>
-<p><strong>Response</strong></p>
-<p>An array of text set objects.</p>
-</section>
-<section id="id5">
-<h4>View<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/text-sets/{id}</span></code></p>
-<p>View the information of a text set owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text set.</p>
-<p><strong>URL Parameters</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">showcontent</span></code>: setting to <code class="docutils literal notranslate"><span class="pre">1</span></code> will include the content of texts in the response. By default, it is set to <code class="docutils literal notranslate"><span class="pre">0</span></code> to omit the content of texts.</p>
-<p><strong>Response</strong></p>
-<p>The text set object of the given ID.</p>
-</section>
-<section id="id6">
-<h4>Create<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/text-sets</span></code></p>
-<p>Create a new text set.</p>
-<p><strong>Request</strong></p>
-<p>A text set object for the new text set. The object should omit all <code class="docutils literal notranslate"><span class="pre">readOnly</span></code> properties, and they will be ignored even if they exist in the request body.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">texts</span></code> property of the text set object can contain the list of text objects to be included in the text set. If the <code class="docutils literal notranslate"><span class="pre">id</span></code> is valid and specified in a text object, it will associate that existing text to the text set. Otherwise, it will try to create the text first and then associate the text to the text set.</p>
-<p><strong>Response</strong></p>
-<p>The text set object of the newly created text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API.</p>
-</section>
-<section id="id7">
-<h4>Update<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/text-sets/{id}</span></code></p>
-<p>Update a text set owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text set.</p>
-<p><strong>Request</strong></p>
-<p>A text object with only the updated properties. Properties not specified in the request body will remain untouched.</p>
-<p>Similar to the create API, <code class="docutils literal notranslate"><span class="pre">id</span></code> of text objects can be set for existing texts. Or it will create new texts for the text set. Note that by setting up the texts property, it will overwrite the entire collection of texts for the text set.</p>
-<p><strong>Response</strong></p>
-<p>The text set object of the updated text set. For each text object in the text set, it will omit the content of the text. To get the content of a text, use the view text API.</p>
-</section>
-<section id="id8">
-<h4>Delete<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/text-sets/{id}</span></code></p>
-<p>Delete a text set owned by the authenticated user. <code class="docutils literal notranslate"><span class="pre">{id}</span></code> is the ID of text set. Note that this will only unlink the texts from the deleted text set. To also delete the texts in the text set, use the delete text API.</p>
-<p><strong>Response</strong></p>
-<p>The text set object of the deleted text set. For each text object in the text set, it will omit the content of the text.</p>
-</section>
 </section>
 </section>
 </section>
@@ -678,16 +572,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-text">Edit a Text</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-process">API Process</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#view-all">View all</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#view">View</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#create">Create</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#update">Update</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">Delete</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-process">API Process</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-sets">Text Sets</a><ul class="nav section-nav flex-column">
@@ -698,14 +583,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-a-text-set">Copy a Text Set</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">API Process</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">View all</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">View</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Create</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Update</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Delete</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">API Process</a></li>
 </ul>
 </li>
 </ul>
