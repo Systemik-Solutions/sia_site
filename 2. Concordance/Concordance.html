@@ -413,175 +413,178 @@ document.write(`
 </ol>
 <p>You’ll see the results on the right. You can copy the data to your clipboard or export it as an .xlsx or .zip file.</p>
 </section>
-<hr class="docutils" />
 <section id="api-process">
 <h2>API Process<a class="headerlink" href="#api-process" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/concordance</span></code></p>
 <p>Running concordance on a single text. See Setting texts and text sets section about how to set text property.</p>
 <p><strong>Request</strong></p>
-<p>{</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;$id&quot;: &quot;https://intelligentarchive.sydney.edu.au/api/v1/schemas/request-concordance.schema.json&quot;, 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
 
-&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;, 
+    <span class="s2">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;https://intelligentarchive.sydney.edu.au/api/v1/schemas/request-concordance.schema.json&quot;</span><span class="p">,</span> 
 
-&quot;title&quot;: &quot;Request - concordance&quot;, 
+    <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span> 
 
-&quot;description&quot;: &quot;The request object to run concordance.&quot;, 
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Request - concordance&quot;</span><span class="p">,</span> 
 
-&quot;type&quot;: &quot;object&quot;, 
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The request object to run concordance.&quot;</span><span class="p">,</span> 
 
-&quot;required&quot;: [&quot;text&quot;, &quot;option&quot;], 
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
 
-&quot;properties&quot;: { 
+    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;option&quot;</span><span class="p">],</span> 
 
-    &quot;text&quot;: { 
+    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-        &quot;description&quot;: &quot;Specifies the text for the concordance.&quot;, 
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-        &quot;oneOf&quot;: [ 
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Specifies the text for the concordance.&quot;</span><span class="p">,</span> 
 
-            { 
+            <span class="s2">&quot;oneOf&quot;</span><span class="p">:</span> <span class="p">[</span> 
 
-                &quot;type&quot;: &quot;integer&quot;, 
+                <span class="p">{</span> 
 
-                &quot;description&quot;: &quot;The ID of the text.&quot; 
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
 
-            }, 
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ID of the text.&quot;</span> 
 
-            {&quot;$ref&quot;: &quot;/api/v1/schemas/text.schema.json&quot;} 
+                <span class="p">},</span> 
 
-        ] 
+                <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/v1/schemas/text.schema.json&quot;</span><span class="p">}</span> 
 
-    }, 
+            <span class="p">]</span> 
 
-    &quot;option&quot;: { 
+        <span class="p">},</span> 
 
-        &quot;type&quot;: &quot;object&quot;, 
+        <span class="s2">&quot;option&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-        &quot;description&quot;: &quot;Concordance settings&quot;, 
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
 
-        &quot;required&quot;: [&quot;words&quot;], 
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Concordance settings&quot;</span><span class="p">,</span> 
 
-        &quot;properties&quot;: { 
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;words&quot;</span><span class="p">],</span> 
 
-            &quot;words&quot;: { 
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                &quot;type&quot;: &quot;array&quot;, 
+                <span class="s2">&quot;words&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                &quot;description&quot;: &quot;The list of words to be searched.&quot;, 
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
 
-                &quot;items&quot;: { 
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The list of words to be searched.&quot;</span><span class="p">,</span> 
 
-                    &quot;type&quot;: &quot;string&quot; 
+                    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                } 
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span> 
 
-            }, 
+                    <span class="p">}</span> 
 
-            &quot;numOfWordsBefore&quot;: { 
+                <span class="p">},</span> 
 
-                &quot;type&quot;: &quot;integer&quot;, 
+                <span class="s2">&quot;numOfWordsBefore&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                &quot;description&quot;: &quot;The number of words to return in the pre-context.&quot;, 
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
 
-                &quot;default&quot;: 5, 
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of words to return in the pre-context.&quot;</span><span class="p">,</span> 
 
-                &quot;exclusiveMinimum&quot;: 0 
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> 
 
-            }, 
+                    <span class="s2">&quot;exclusiveMinimum&quot;</span><span class="p">:</span> <span class="mi">0</span> 
 
-            &quot;numOfWordsAfter&quot;: { 
+                <span class="p">},</span> 
 
-                &quot;type&quot;: &quot;integer&quot;, 
+                <span class="s2">&quot;numOfWordsAfter&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                &quot;description&quot;: &quot;The number of words to return in the post-context.&quot;, 
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span> 
 
-                &quot;default&quot;: 5, 
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The number of words to return in the post-context.&quot;</span><span class="p">,</span> 
 
-                &quot;exclusiveMinimum&quot;: 0 
+                    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> 
 
-            } 
+                    <span class="s2">&quot;exclusiveMinimum&quot;</span><span class="p">:</span> <span class="mi">0</span> 
 
-        } 
+                <span class="p">}</span> 
 
-    } 
+            <span class="p">}</span> 
 
-} 
+        <span class="p">}</span> 
+
+    <span class="p">}</span> 
+
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>}</p>
-<p>Response</p>
-<p>{</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;$id&quot;: &quot;https://intelligentarchive.sydney.edu.au/api/v1/schemas/response-concordance.schema.json&quot;, 
+<p><strong>Response</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> 
 
-&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;, 
+    <span class="s2">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;https://intelligentarchive.sydney.edu.au/api/v1/schemas/response-concordance.schema.json&quot;</span><span class="p">,</span> 
 
-&quot;title&quot;: &quot;Response - concordance&quot;, 
+    <span class="s2">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span> 
 
-&quot;description&quot;: &quot;The response object from the concordance feature.&quot;, 
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Response - concordance&quot;</span><span class="p">,</span> 
 
-&quot;type&quot;: &quot;object&quot;, 
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The response object from the concordance feature.&quot;</span><span class="p">,</span> 
 
-&quot;properties&quot;: { 
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
 
-    &quot;words&quot;: { 
+    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-        &quot;type&quot;: &quot;array&quot;, 
+        <span class="s2">&quot;words&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-        &quot;description&quot;: &quot;The list of words with their contexts.&quot;, 
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
 
-        &quot;items&quot;: { 
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The list of words with their contexts.&quot;</span><span class="p">,</span> 
 
-            &quot;type&quot;: &quot;object&quot;, 
+            <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-            &quot;properties&quot;: { 
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> 
 
-                &quot;word&quot;: { 
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                    &quot;type&quot;: &quot;string&quot;, 
+                    <span class="s2">&quot;word&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                    &quot;description&quot;: &quot;The searched word.&quot; 
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> 
 
-                }, 
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The searched word.&quot;</span> 
 
-                &quot;preContext&quot;: { 
+                    <span class="p">},</span> 
 
-                    &quot;type&quot;: &quot;array&quot;, 
+                    <span class="s2">&quot;preContext&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                    &quot;description&quot;: &quot;List of words before the searched word.&quot;, 
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
 
-                    &quot;items&quot;: { 
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;List of words before the searched word.&quot;</span><span class="p">,</span> 
 
-                        &quot;type&quot;: &quot;string&quot; 
+                        <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                    } 
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span> 
 
-                }, 
+                        <span class="p">}</span> 
 
-                &quot;postContext&quot;: { 
+                    <span class="p">},</span> 
 
-                    &quot;type&quot;: &quot;array&quot;, 
+                    <span class="s2">&quot;postContext&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                    &quot;description&quot;: &quot;List of words after the searched word.&quot;, 
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> 
 
-                    &quot;items&quot;: { 
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;List of words after the searched word.&quot;</span><span class="p">,</span> 
 
-                        &quot;type&quot;: &quot;string&quot; 
+                        <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span> 
 
-                    } 
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span> 
 
-                } 
+                        <span class="p">}</span> 
 
-            } 
+                    <span class="p">}</span> 
 
-        } 
+                <span class="p">}</span> 
 
-    } 
+            <span class="p">}</span> 
 
-} 
+        <span class="p">}</span> 
+
+    <span class="p">}</span> 
+
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>}</p>
 </section>
 </section>
 

@@ -14,7 +14,6 @@ An example of how you might use a Concordance is to map the occurrence of the wo
 
 You’ll see the results on the right. You can copy the data to your clipboard or export it as an .xlsx or .zip file.
 
-***
 ## API Process
 
 `POST /concordance` 
@@ -23,6 +22,7 @@ Running concordance on a single text. See Setting texts and text sets section ab
 
 **Request** 
 
+```
 { 
 
     "$id": "https://intelligentarchive.sydney.edu.au/api/v1/schemas/request-concordance.schema.json", 
@@ -113,10 +113,12 @@ Running concordance on a single text. See Setting texts and text sets section ab
 
     } 
 
-} 
+}
+```
 
-Response 
+**Response**
 
+```
 { 
 
     "$id": "https://intelligentarchive.sydney.edu.au/api/v1/schemas/response-concordance.schema.json", 
@@ -187,4 +189,5 @@ Response
 
     } 
 
-} 
+}
+```
