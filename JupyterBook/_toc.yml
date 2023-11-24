@@ -24,9 +24,9 @@ parts:
   - caption: 6. Case Studies
     chapters:
       - file: 6. Case Studies/*
-      - file: 6. Case Studies/Case 1
-      - file: 6. Case Studies/Case 2
-      - file: 6. Case Studies/Case 3
+      - file: 6. Case Studies/EX1
+      - file: 6. Case Studies/EX2
+      - file: 6. Case Studies/EX3
   - caption: 7. API Documentation
     chapters:
       - file: 7. API Documentation/API Documentation
