@@ -31,3 +31,7 @@ parts:
     chapters:
       - file: 7. API Documentation/API Documentation
       - file: 7. API Documentation/*
+  - caption: 8. Acknowledgements
+    chapters:
+      - file: 8. Acknowledgements/Acknowledgements
+      - file: 8. Acknowledgements/*
