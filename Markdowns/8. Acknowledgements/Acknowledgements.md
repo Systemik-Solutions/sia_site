@@ -5,6 +5,7 @@
 <br>
 <br>
 The Stylometric Intelligent Archive project received co-investment from the Australian Research Data Commons (ARDC) as part of the HASS and Indigenous RDC CDL project. The ARDC is enabled by the National Collaborative Research Infrastructure Strategy (NCRIS).
+<br>
 
 ![Untitled design (1)](https://github.com/user-attachments/assets/aebedec7-f4ea-4ae3-b9ba-fe9edf4912f8)
 <br>
