@@ -2,7 +2,7 @@
 
 The Stylometry Intelligent Archive (SIA) provides researchers with a toolkit for stylometry. Stylometry applies statistical measures to literary style. It is founded on the discovery by John Burrows in the 1970s that the frequencies of very common words like ‘the’ and ‘you’ hold rich information about style. Stylometry offers the promise of finding patterns in language use in large collections of samples, patterns which are not necessarily evident to the unaided reader and which can be tested for statistical significance. The best-known application of stylometry is authorship detection, but it has been used for stylistic analysis more broadly, and across and within numerous languages, modes and periods.
 
-[<kbd> <br> Go to SIA(https://sia.ardc-hdcl-sia-iaw.cloud.edu.au/)<br> </kbd>]
+<kbd> <br> [Go to SIA](https://sia.ardc-hdcl-sia-iaw.cloud.edu.au/)<br> </kbd>
 
 Within SIA researchers can assemble and manage collections of texts, make counts of words within them and then either run experiments with the word counts locally or export tables for analysis elsewhere. Notable features are the ability to filter word counting by XML elements, to segment texts as overlapping or non-overlapping blocks, and to store and edit text sets for repeated use. SIA runs a caching system to speed up large and complex operations. 
 
