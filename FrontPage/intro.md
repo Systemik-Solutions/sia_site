@@ -6,7 +6,7 @@ Within SIA researchers can assemble and manage collections of texts, make counts
 
 From the home page of SIA, you can upload Texts or Text Sets, then run one of four experiments.
 
-<p align-items="center" align="center"><img src="https://github.com/user-attachments/assets/e64cff68-0cfe-4b1d-862c-ff07fdc28a6c" height="80">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/user-attachments/assets/3ba02b25-6760-4677-8be5-292b4329f403" height="150"></p>
+<p align-items="center" align="center"><a href="https://systemik-solutions.github.io/sia_site/8.%20Acknowledgements/Acknowledgements.html>"<img src="https://github.com/user-attachments/assets/e64cff68-0cfe-4b1d-862c-ff07fdc28a6c" height="80"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://systemik-solutions.github.io/sia_site/8.%20Acknowledgements/Acknowledgements.html"><img src="https://github.com/user-attachments/assets/3ba02b25-6760-4677-8be5-292b4329f403" height="150"></a></p>
 
 ![1](https://github.com/Systemik-Solutions/sia_site/assets/29685780/1df5c2ba-2bcd-4e77-af82-4500e8d9133f)
 
